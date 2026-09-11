@@ -67,4 +67,5 @@ function draw() {
   rect(424, 194, 174, 71);
   fill('red');
   rect(484, 123, 114, 71);
+
 }
