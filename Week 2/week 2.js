@@ -115,26 +115,27 @@ if(sun == -50){
   fill(0, 0, 0, 25)
   ellipse(cloud, 420, 300, 40)
 
-   if (cloud < 1001) {
-    cloud -= 0.5;
-  }
+if (cloud < 1001) {
+  cloud -= 0.5;
+}
 
-  if (cloud < -100) {
-    cloud = 900;
-  }
+if (cloud < -100) {
+  cloud = 900;
+}
 
-   fill('white')
-  ellipse(cloud2, 130, 150, 40)
-  ellipse(cloud2, 140, 200, 30)
-  fill(0, 0, 0, 25)
-  ellipse(cloud2, 450, 300, 40)
+fill('white')
+ellipse(cloud2, 130, 150, 40)
+ellipse(cloud2, 140, 200, 30)
+fill(0, 0, 0, 25)
+ellipse(cloud2, 450, 300, 40)
 
-   if (cloud2 < 1601) {
-    cloud2 -= 0.8;
-  }
-  if (cloud2 < -100) {
-    cloud2 = 1000;
-  }
+if (cloud2 < 1601) {
+  cloud2 -= 0.8;
+}
+
+if (cloud2 < -100) {
+  cloud2 = 1000;
+}
 
 
   //car
@@ -183,9 +184,10 @@ if (green == 155) {
 if (moon >= -50 && moon <= 901){
   fill(255, 255, 0, 170)
   triangle(250, 490, 425, 250, 625, 490)
-}
- fill('yellow')
- ellipse(425, 260, 30, 10)
+ }
+
+fill('yellow')
+ellipse(425, 260, 30, 10)
 fill(100,100,100)
 rect(400, 250, 10, 150)
 rect(400, 250, 40, 10)
@@ -203,17 +205,17 @@ fill(0, green, 0)
 circle(700, 350, 20)
 
 
-  //tree in front of car
-  fill('brown')
-  rect(450, 500, 20, 100)
-  fill('green')
-  ellipse(460, 490, 70, 100)
+//tree in front of car
+fill('brown')
+rect(450, 500, 20, 100)
+fill('green')
+ellipse(460, 490, 70, 100)
 
 
-  //night
- if (moon >= -50 && moon <= 901){
-  fill(0, 0, 0, 170);
-  rect(0,0,800,600);
+//night
+if (moon >= -50 && moon <= 901){
+fill(0, 0, 0, 170);
+rect(0,0,800,600);
 }
 
 }
@@ -221,34 +223,32 @@ circle(700, 350, 20)
 
 //code traffick light
 function keyPressed() {
-  if (keyCode === 13 && score <= 2) {
+if (keyCode === 13 && score <= 2) {
     red = 255;
     green = 0;
     yellow = 'black';
     score += 1;
-    
   }
-  if (keyCode === 13 && score == 3 && yellow == 'black') {
+
+if (keyCode === 13 && score == 3 && yellow == 'black') {
     green = 0;
     yellow = 'yellow';
     red = 0;
     score += 2;
   }
-  if (keyCode ===13 && score <=6 && yellow == 'yellow') {
+
+if (keyCode ===13 && score <=6 && yellow == 'yellow') {
     score += 1;
   }
-  if (keyCode === 13 && score == 7 && red == 0) {
+
+if (keyCode === 13 && score == 7 && red == 0) {
     green = 155;
     yellow = 'black';
     red = 0;
     score += 1;
-}
-if (keyCode === 13 && score >= 8 && green == 155){
-  score += 1;
-}
+  }
+
 if (score >= 8) {
-  score = 1;
-}
-
-
+    score = 1;
+  }
 }
