@@ -1,7 +1,7 @@
 let sun = 900
 let moon = 3000
-let cloud = 1000
-let cloud2 = 1600
+let cloud = -150
+let cloud2 = -300
 let car = -150
 let wiel1 = -130
 let wiel2 = -30
@@ -117,12 +117,12 @@ if(sun == -50){
   fill(0, 0, 0, 25)
   ellipse(cloud, 420, 300, 40)
 
-if (cloud < 1001) {
-  cloud -= 0.5;
+if (cloud > -151) {
+  cloud += 0.5;
 }
 
-if (cloud < -100) {
-  cloud = 900;
+if (cloud > 900) {
+  cloud = -100;
 }
 
 fill('white')
@@ -131,12 +131,12 @@ ellipse(cloud2, 140, 200, 30)
 fill(0, 0, 0, 25)
 ellipse(cloud2, 450, 300, 40)
 
-if (cloud2 < 1601) {
-  cloud2 -= 0.8;
+if (cloud2 > -301) {
+  cloud2 += 0.8;
 }
 
-if (cloud2 < -100) {
-  cloud2 = 1000;
+if (cloud2 > 900) {
+  cloud2 = -300;
 }
 
 
