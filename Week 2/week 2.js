@@ -122,7 +122,7 @@ if (cloud > -151) {
 }
 
 if (cloud > 900) {
-  cloud = -100;
+  cloud = -150;
 }
 
 fill('white')
