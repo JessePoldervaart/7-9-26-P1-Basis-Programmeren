@@ -136,7 +136,7 @@ if (cloud2 > -151) {
 }
 
 if (cloud2 > 900) {
-  cloud2 = -1500;
+  cloud2 = -150;
 }
 
 
