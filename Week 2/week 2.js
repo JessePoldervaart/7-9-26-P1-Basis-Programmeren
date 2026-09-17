@@ -9,11 +9,13 @@ let value = 255
 let red = 0
 let yellow = 'black'
 let green = 155
-let score = 1
+let score = 2
 let ship = -100
 let ship2 = 100
 let ship3 = 95
-
+let c = -150
+let w1 = -130
+let w2 = -30
 function setup() {
   createCanvas(800, 600);
 }
@@ -180,6 +182,57 @@ if (green == 155) {
  }
 
 
+//car2
+  fill('blue')
+  rect(c, 540, 150, 30, 5)
+  rect(c, 520, 100, 40, 10)
+fill('black')
+  circle(w1, 570, 30)
+  circle(w2, 570, 30)
+  fill('grey')
+  circle(w1, 570, 20)
+  circle(w2, 570, 20)
+
+   fill('pink')
+  rect(c - 500, 540, 150, 30, 5)
+  rect(c - 500, 520, 100, 40, 10)
+fill('black')
+  circle(w1 - 500, 570, 30)
+  circle(w2 - 500, 570, 30)
+  fill('grey')
+  circle(w1 - 500, 570, 20)
+  circle(w2 - 500, 570, 20)
+
+if (c > 2000) {
+  c = -150
+}
+
+if (w1 > 2010) {
+  w1 = -140
+}
+
+if (w2 > 2110) {
+  w2 = -40
+}
+
+if (green == 155) {
+  c += 9;
+  w1 += 9;
+  w2 += 9;
+ }
+
+ if (yellow == 'yellow') {
+  c += 3;
+  w1 += 3;
+  w2 += 3;
+ }
+
+ if (red == 255) {
+  c += 0;
+  w1 += 0;
+  w2 += 0;
+ }
+
  //lamp
 if (moon >= -50 && moon <= 901){
   fill(255, 255, 0, 170)
@@ -224,8 +277,8 @@ rect(0,0,800,600);
 //code traffick light
 function keyPressed() {
 if (keyCode === 13 && score <= 2) {
-    red = 255;
-    green = 0;
+    red = 0;
+    green = 155;
     yellow = 'black';
     score += 1;
   }
@@ -242,9 +295,9 @@ if (keyCode ===13 && score <=6 && yellow == 'yellow') {
   }
 
 if (keyCode === 13 && score == 7 && red == 0) {
-    green = 155;
+    green = 0;
     yellow = 'black';
-    red = 0;
+    red = 255;
     score += 1;
   }
 
