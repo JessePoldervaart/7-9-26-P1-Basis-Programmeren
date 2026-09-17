@@ -139,9 +139,8 @@ if(sun == -50){
 
   //car
   fill('red')
-  rect(car, 430, 150, 30)
-  fill('red')
-  rect(car, 410, 100, 40)
+  rect(car, 430, 150, 30, 5)
+  rect(car, 410, 100, 40, 10)
 fill('black')
   circle(wiel1, 460, 30)
   circle(wiel2, 460, 30)
@@ -195,7 +194,7 @@ rect(400, 250, 40, 10)
 //traffick light
 fill('darkgray')
 rect(690, 370, 20, 30)
-rect(680, 270, 40, 100)
+rect(680, 270, 40, 100, 10)
 fill(red, 0, 0)
 circle(700, 290, 20)
 fill(yellow)
