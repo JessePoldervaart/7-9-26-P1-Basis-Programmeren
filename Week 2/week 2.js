@@ -1,12 +1,10 @@
 let sun = 900
+let moon = 3000
 let cloud = 1000
 let cloud2 = 1600
 let car = -150
 let wiel1 = -130
 let wiel2 = -30
-let car2 = -150
-let wiel3 = -130
-let wiel4 = -30
 let value = 255
 let red = 0
 let yellow = 'black'
@@ -21,22 +19,50 @@ function setup() {
 }
 
 function draw() {
-  background('lightblue');
   noStroke();
+  background('lightblue');
+   
+
+  //lighting
+if (moon >= -50 && moon <= 901){
+  background('darkblue')
+  fill('white')
+  circle(60, 45, 5)
+  circle(70, 47, 5)
+  circle(100, 40, 5)
+  circle(40, 49, 5)
+  circle(80, 60, 5)
+  circle(65, 35, 5)
+}
+
+ 
+  
+//day to night cycle
+moon -= 1
+sun -= 1
+  if(moon == -50){
+    sun = 900
+  }
+
+if(sun == -50){
+    moon = 900
+  }
+
+
   //sun
   fill(255, 255, 0, 50)
   circle(sun, 60, 100) 
   fill(250, 250, 51)
   circle(sun, 60, 80)
- 
-  if (sun < 901) {
-    sun -= 0.5;
-  }
-  if (sun < -50) {
-    sun = 900;
-  }
 
- 
+
+  //moon
+    fill(255, 255, 230, 80)
+  circle(moon, 60, 100) 
+  fill(250, 250, 251)
+  circle(moon, 60, 80)
+
+  
   //spaceship
   fill('black')
   ellipse(ship, ship2, 50, 10)
@@ -70,6 +96,7 @@ function draw() {
   triangle(250, 400, 400, 50, 200, 400)
   triangle(50, 400, 200, 100, 0, 400)
 
+
   //trees
   fill('brown')
   rect(200, 300, 20, 100)
@@ -79,33 +106,36 @@ function draw() {
   rect(550, 300, 20, 100)
   fill('green')
   ellipse(560, 290, 70, 100)
-  
- 
-  //clouds
+
+
+   //clouds
   fill('white')
   ellipse(cloud, 90, 150, 40)
   ellipse(cloud, 100, 200, 30)
-  fill(0, 0, 0, 50)
+  fill(0, 0, 0, 25)
   ellipse(cloud, 420, 300, 40)
+
    if (cloud < 1001) {
-    cloud -= 1;
+    cloud -= 0.5;
   }
+
   if (cloud < -100) {
-    cloud = 1000;
+    cloud = 900;
   }
 
    fill('white')
   ellipse(cloud2, 130, 150, 40)
   ellipse(cloud2, 140, 200, 30)
-  fill(0, 0, 0, 50)
+  fill(0, 0, 0, 25)
   ellipse(cloud2, 450, 300, 40)
 
    if (cloud2 < 1601) {
-    cloud2 -= 1.3;
+    cloud2 -= 0.8;
   }
   if (cloud2 < -100) {
-    cloud2 = 1600;
+    cloud2 = 1000;
   }
+
 
   //car
   fill('red')
@@ -130,16 +160,19 @@ if (wiel1 > 910) {
 if (wiel2 > 1010) {
   wiel2 = -40
 }
+
 if (green == 155) {
   car += 5;
   wiel1 += 5;
   wiel2 += 5;
  }
+
  if (yellow == 'yellow') {
   car += 2;
   wiel1 += 2;
   wiel2 += 2;
  }
+
  if (red == 255) {
   car += 0;
   wiel1 += 0;
@@ -147,7 +180,19 @@ if (green == 155) {
  }
 
 
-//stoplicht
+ //lamp
+if (moon >= -50 && moon <= 901){
+  fill(255, 255, 0, 170)
+  triangle(250, 490, 425, 250, 625, 490)
+}
+ fill('yellow')
+ ellipse(425, 260, 30, 10)
+fill(100,100,100)
+rect(400, 250, 10, 150)
+rect(400, 250, 40, 10)
+
+
+//traffick light
 fill('darkgray')
 rect(690, 370, 20, 30)
 rect(680, 270, 40, 100)
@@ -165,10 +210,17 @@ circle(700, 350, 20)
   fill('green')
   ellipse(460, 490, 70, 100)
 
- 
+
+  //night
+ if (moon >= -50 && moon <= 901){
+  fill(0, 0, 0, 170);
+  rect(0,0,800,600);
+}
+
 }
 
 
+//code traffick light
 function keyPressed() {
   if (keyCode === 13 && score <= 2) {
     red = 255;
