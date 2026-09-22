@@ -54,6 +54,8 @@ if (playerturn == 0 || playerturn == 2 || playerturn == 4 || playerturn == 6 || 
   fill('white')
   textSize(20)
   text('restart', 160, 360)
+ 
+ 
   //winconditions
 
      //blue
@@ -150,6 +152,9 @@ if (playerturn == 0 || playerturn == 2 || playerturn == 4 || playerturn == 6 || 
 }
 }
 
+
+
+//hoover function
 function mouseMoved() {
    if (playerturn >= 0) {
    
@@ -223,13 +228,13 @@ if (vakje9 == 'gray' || vakje9 == 170){
 
 
 function mouseClicked() {
-//turnchanging
+//turns
 
 
     if (mouseClicked) {
     playerturn += 1
   }
-
+   //reset
   if (mouseX >= 140 && mouseX <= 240 && mouseY >= 340 && mouseY <= 370) {
     playerturn = 0
     vakje1 = 'gray'
@@ -242,7 +247,7 @@ function mouseClicked() {
     vakje8 = 'gray'
     vakje9 = 'gray'
   }
-//code player red
+   //code player red
  if (playerturn == 1 || playerturn == 3 || playerturn == 5 || playerturn == 7 || playerturn == 9) {
   if (mouseX >= 60 && mouseX <= 140 && mouseY >= 60 && mouseY <= 140) {
     vakje1 = 'red'
