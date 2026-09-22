@@ -13,12 +13,21 @@ function setup() {
 }
 //code for the base
 function draw() {
+ 
   noStroke()
   background(200);
   fill('red')
   rect(0, 0, 190, 380)
   fill('blue')
   rect(190, 0, 190, 380)
+ if (playerturn == 1 || playerturn == 3 || playerturn == 5 || playerturn == 7 || playerturn == 9){
+  fill(0, 0, 0, 100)
+  rect(0, 0, 190, 380)
+ }
+if (playerturn == 0 || playerturn == 2 || playerturn == 4 || playerturn == 6 || playerturn == 8) {
+  fill(0, 0, 0, 100)
+  rect(190, 0, 190, 380)
+}
   fill('black')
   rect(50, 50, 280, 280, 20)
   fill(vakje1)
@@ -39,7 +48,12 @@ function draw() {
   rect(150, 240, 80, 80, 10)
    fill(vakje9)
   rect(240, 240, 80, 80, 10)
-
+ 
+  fill('black')
+  rect(140, 340, 100, 30, 10)
+  fill('white')
+  textSize(20)
+  text('restart', 160, 360)
   //winconditions
 
      //blue
@@ -124,13 +138,109 @@ function draw() {
     fill(255)
     textSize(20)
     text('red wins', 149, 40)
+  } 
+  else{
+    if (playerturn >= 9) {
+    fill(255)
+    textSize(20)
+    text('draw', 170, 40)
+  } else{
+
   }
 }
+}
+
+function mouseMoved() {
+   if (playerturn >= 0) {
+   
+
+   if (vakje1 == 'gray' || vakje1 == 170){
+    if (mouseX >= 60 && mouseX <= 140 && mouseY >= 60 && mouseY <= 140) {
+    vakje1 = 170
+  } else{
+    vakje1 = 'gray'
+  }
+}
+   if (vakje2 == 'gray' || vakje2 == 170){
+   if (mouseX >= 150 && mouseX <= 230 && mouseY >= 60 && mouseY <= 140) {
+    vakje2 = 170
+  } else{
+  vakje2 = 'gray'
+ }
+}
+if (vakje3 == 'gray' || vakje3 == 170){
+  if (mouseX >= 240 && mouseX <= 320 && mouseY >= 60 && mouseY <= 140) {
+    vakje3 = 170
+  } else{
+  vakje3 = 'gray'
+ }
+}
+if (vakje4 == 'gray' || vakje4 == 170){
+  if (mouseX >= 60 && mouseX <= 140 && mouseY >= 150 && mouseY <= 230) {
+    vakje4 = 170
+  } else{
+  vakje4 = 'gray'
+ }
+}
+if (vakje5 == 'gray' || vakje5 == 170){
+  if (mouseX >= 150 && mouseX <= 230 && mouseY >= 150 && mouseY <= 230) {
+    vakje5 = 170
+  } else{
+  vakje5 = 'gray'
+ }
+}
+if (vakje6 == 'gray' || vakje6 == 170){
+  if (mouseX >= 240 && mouseX <= 320 && mouseY >= 150 && mouseY <= 230) {
+    vakje6 = 170
+  } else{
+  vakje6 = 'gray'
+ }
+}
+if (vakje7 == 'gray' || vakje7 == 170){
+    if (mouseX >= 60 && mouseX <= 140 && mouseY >= 240 && mouseY <= 320) {
+    vakje7 = 170
+  } else{
+  vakje7 = 'gray'
+ }
+}
+if (vakje8 == 'gray' || vakje8 == 170){
+  if (mouseX >= 150 && mouseX <= 230 && mouseY >= 240 && mouseY <= 320) {
+    vakje8 = 170
+  } else{
+  vakje8 = 'gray'
+ }
+}
+if (vakje9 == 'gray' || vakje9 == 170){
+  if (mouseX >= 240 && mouseX <= 320 && mouseY >= 240 && mouseY <= 320) {
+    vakje9 = 170
+  } else{
+  vakje9 = 'gray'
+ }
+}
+ } 
+}
+
+
 
 function mouseClicked() {
 //turnchanging
+
+
     if (mouseClicked) {
     playerturn += 1
+  }
+
+  if (mouseX >= 140 && mouseX <= 240 && mouseY >= 340 && mouseY <= 370) {
+    playerturn = 0
+    vakje1 = 'gray'
+    vakje2 = 'gray'
+    vakje3 = 'gray'
+    vakje4 = 'gray'
+    vakje5 = 'gray'
+    vakje6 = 'gray'
+    vakje7 = 'gray'
+    vakje8 = 'gray'
+    vakje9 = 'gray'
   }
 //code player red
  if (playerturn == 1 || playerturn == 3 || playerturn == 5 || playerturn == 7 || playerturn == 9) {
@@ -195,3 +305,5 @@ function mouseClicked() {
 }
 
 }
+
+
