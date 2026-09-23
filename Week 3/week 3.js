@@ -57,11 +57,20 @@ function draw() {
   textSize(20)
   text('restart', 160, 360)
 
+  fill('black')
+  rect(5, 5, 100, 23, 10)
+  fill('white')
+  text('red begins', 7, 22)
+
+  fill('black')
+  rect(265, 5, 110, 23, 10)
+  fill('white')
+  text('blue begins', 269, 22)
 
   //winconditions
 
   //draw
-  if (playerturn >= 10) {
+  if (vakje1 != 'gray' && vakje1 != 170 && vakje2 != 'gray' && vakje2 != 170 && vakje3 != 'gray' && vakje3 != 170 && vakje4 != 'gray' && vakje4 != 170 && vakje5 != 'gray' && vakje5 != 170 && vakje6 != 'gray' && vakje6 != 170 && vakje7 != 'gray' && vakje7 != 170 && vakje8 != 'gray' && vakje8 != 170 && vakje9 != 'gray' && vakje9 != 170) {
     fill('black')
     rect(165, 22, 53, 25, 10)
     fill(255)
@@ -267,8 +276,17 @@ function changeTurn()
 function mouseClicked() {
   //turns
 
+//rect(5, 5, 100, 23, 10)
+//red begins
+if(mouseX >= 5 && mouseX <= 105 && mouseY >= 5 && mouseY <= 27){
+  playerturn = 1
+}
 
-
+//blue begins
+if(mouseX >= 265 && mouseX <= 375 && mouseY >= 5 && mouseY <= 27){
+  playerturn = 2
+}
+//rect(265, 5, 110, 23, 10)
   //reset
   if (mouseX >= 140 && mouseX <= 240 && mouseY >= 340 && mouseY <= 370) {
     playerturn = 1
