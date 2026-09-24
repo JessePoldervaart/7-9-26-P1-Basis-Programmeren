@@ -302,7 +302,6 @@ function changeTurn()
 function mouseClicked() {
   //turns
 
-//rect(5, 5, 100, 23, 10)
 //red begins
 if(mouseX >= 5 && mouseX <= 105 && mouseY >= 5 && mouseY <= 27){
   playerturn = 1
@@ -312,7 +311,7 @@ if(mouseX >= 5 && mouseX <= 105 && mouseY >= 5 && mouseY <= 27){
 if(mouseX >= 265 && mouseX <= 375 && mouseY >= 5 && mouseY <= 27){
   playerturn = 2
 }
-//rect(265, 5, 110, 23, 10)
+
   //reset
   if (mouseX >= 140 && mouseX <= 240 && mouseY >= 340 && mouseY <= 370) {
     playerturn = 1
@@ -326,6 +325,7 @@ if(mouseX >= 265 && mouseX <= 375 && mouseY >= 5 && mouseY <= 27){
     vakje8 = 'gray'
     vakje9 = 'gray'
   }
+
   //code player red
   if (playerturn == 1 || playerturn == 3 || playerturn == 5 || playerturn == 7 || playerturn == 9 || playerturn == 11) {
     if (mouseX >= 60 && mouseX <= 140 && mouseY >= 60 && mouseY <= 140 && vakje1 == 170) {
@@ -405,7 +405,6 @@ if(mouseX >= 265 && mouseX <= 375 && mouseY >= 5 && mouseY <= 27){
       changeTurn();
     }
   }
-
 }
 
 
