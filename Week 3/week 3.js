@@ -67,10 +67,19 @@ function draw() {
   fill('white')
   text('blue begins', 269, 22)
 
+
   //winconditions
 
   //draw
-  if (vakje1 != 'gray' && vakje1 != 170 && vakje2 != 'gray' && vakje2 != 170 && vakje3 != 'gray' && vakje3 != 170 && vakje4 != 'gray' && vakje4 != 170 && vakje5 != 'gray' && vakje5 != 170 && vakje6 != 'gray' && vakje6 != 170 && vakje7 != 'gray' && vakje7 != 170 && vakje8 != 'gray' && vakje8 != 170 && vakje9 != 'gray' && vakje9 != 170) {
+  if (vakje1 != 'gray' && vakje1 != 170 && 
+      vakje2 != 'gray' && vakje2 != 170 && 
+      vakje3 != 'gray' && vakje3 != 170 && 
+      vakje4 != 'gray' && vakje4 != 170 && 
+      vakje5 != 'gray' && vakje5 != 170 && 
+      vakje6 != 'gray' && vakje6 != 170 && 
+      vakje7 != 'gray' && vakje7 != 170 && 
+      vakje8 != 'gray' && vakje8 != 170 && 
+      vakje9 != 'gray' && vakje9 != 170) {
     fill('black')
     rect(165, 22, 53, 25, 10)
     fill(255)
