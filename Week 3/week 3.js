@@ -76,6 +76,7 @@ function draw() {
     fill(255)
     textSize(20)
     text('draw', 170, 40)
+    playerturn = 20
   }
 
   //blue
@@ -85,6 +86,7 @@ function draw() {
     fill(255)
     textSize(20)
     text('blue wins', 149, 40)
+    playerturn = 20
   }
   if (vakje4 == 'blue' && vakje5 == 'blue' && vakje6 == 'blue') {
     fill('black')
@@ -92,6 +94,7 @@ function draw() {
     fill(255)
     textSize(20)
     text('blue wins', 149, 40)
+    playerturn = 20
   }
   if (vakje7 == 'blue' && vakje8 == 'blue' && vakje9 == 'blue') {
     fill('black')
@@ -99,6 +102,7 @@ function draw() {
     fill(255)
     textSize(20)
     text('blue wins', 149, 40)
+    playerturn = 20
   }
   if (vakje1 == 'blue' && vakje4 == 'blue' && vakje7 == 'blue') {
     fill('black')
@@ -106,6 +110,7 @@ function draw() {
     fill(255)
     textSize(20)
     text('blue wins', 149, 40)
+    playerturn = 20
   }
   if (vakje2 == 'blue' && vakje5 == 'blue' && vakje8 == 'blue') {
     fill('black')
@@ -113,6 +118,7 @@ function draw() {
     fill(255)
     textSize(20)
     text('blue wins', 149, 40)
+    playerturn = 20
   }
   if (vakje3 == 'blue' && vakje6 == 'blue' && vakje9 == 'blue') {
     fill('black')
@@ -120,6 +126,7 @@ function draw() {
     fill(255)
     textSize(20)
     text('blue wins', 149, 40)
+    playerturn = 20
   }
   if (vakje1 == 'blue' && vakje5 == 'blue' && vakje9 == 'blue') {
     fill('black')
@@ -127,6 +134,7 @@ function draw() {
     fill(255)
     textSize(20)
     text('blue wins', 149, 40)
+    playerturn = 20
   }
   if (vakje3 == 'blue' && vakje5 == 'blue' && vakje7 == 'blue') {
     fill('black')
@@ -134,6 +142,7 @@ function draw() {
     fill(255)
     textSize(20)
     text('blue wins', 149, 40)
+    playerturn = 20
   }
 
   //red
@@ -143,6 +152,7 @@ function draw() {
     fill(255)
     textSize(20)
     text('red wins', 153, 40)
+    playerturn = 20
   }
   if (vakje4 == 'red' && vakje5 == 'red' && vakje6 == 'red') {
     fill('black')
@@ -150,6 +160,7 @@ function draw() {
     fill(255)
     textSize(20)
     text('red wins', 153, 40)
+    playerturn = 20
   }
   if (vakje7 == 'red' && vakje8 == 'red' && vakje9 == 'red') {
     fill('black')
@@ -157,6 +168,7 @@ function draw() {
     fill(255)
     textSize(20)
     text('red wins', 153, 40)
+    playerturn = 20
   }
   if (vakje1 == 'red' && vakje4 == 'red' && vakje7 == 'red') {
     fill('black')
@@ -164,6 +176,7 @@ function draw() {
     fill(255)
     textSize(20)
     text('red wins', 153, 40)
+    playerturn = 20
   }
   if (vakje2 == 'red' && vakje5 == 'red' && vakje8 == 'red') {
     fill('black')
@@ -171,6 +184,7 @@ function draw() {
     fill(255)
     textSize(20)
     text('red wins', 153, 40)
+    playerturn = 20
   }
   if (vakje3 == 'red' && vakje6 == 'red' && vakje9 == 'red') {
     fill('black')
@@ -178,6 +192,7 @@ function draw() {
     fill(255)
     textSize(20)
     text('red wins', 153, 40)
+    playerturn = 20
   }
   if (vakje1 == 'red' && vakje5 == 'red' && vakje9 == 'red') {
     fill('black')
@@ -185,6 +200,7 @@ function draw() {
     fill(255)
     textSize(20)
     text('red wins', 153, 40)
+    playerturn = 20
   }
   if (vakje3 == 'red' && vakje5 == 'red' && vakje7 == 'red') {
     fill('black')
@@ -192,6 +208,7 @@ function draw() {
     fill(255)
     textSize(20)
     text('red wins', 153, 40)
+    playerturn = 20
   }
 }
 
