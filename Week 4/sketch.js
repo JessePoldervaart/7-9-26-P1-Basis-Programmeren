@@ -1,33 +1,34 @@
-let colours = ['red', 'salmon', 'pink', 'gray']
-let colour = ['green', 'yellow', 'white', 'purple']
-let col = ['purple', 'white', 'salmon', 'yellow', 'green', 'blue', 'white', 'purple', 'red', 'blue']
-let time = 1
+let colours = ['purple', 'white', 'purple', 'white']
+let colour = ['white', 'purple', 'white', 'purple']
+let col = ['purple', 'white', 'purple', 'white', 'purple', 'white', 'purple', 'white', 'white', 'purple']
+let time = 0
+let hoek = 0
 
 function setup() {
   
  
   createCanvas(800, 600);
-
-
+rectMode(CENTER)
+ angleMode(DEGREES);
+  
 }
 
  function draw() {
   background(220);
- 
- 
- }
+  
 
-    
-function keyPressed(){
-  if(keyCode == 13){
-for(i=0;i<20;i++){
+   
 
-      let x = random(10, 720);
+
+for(i=0;i<60;i++){
+   let x = random(10, 720);
       let y = random(10, 720);
-      let X = random(10, 785);
+     let X = random(10, 785);
       let Y = random(10, 500);
-      let l = random(10, 785);
+    let l = random(10, 785);
       let p = random(10, 585);
+
+
   for(let i = 0; i < 4; i++){
     frameRate(time)
     fill(colours[i])
@@ -41,7 +42,7 @@ for(i=0;i<20;i++){
   }
 
     for(let i = 0; i < 4; i++){
-    frameRate(time)
+      frameRate(time)
     fill(colours[i])
     rect(X+i, Y+390/(i*2), 10, 10)
   }
@@ -53,7 +54,7 @@ for(i=0;i<20;i++){
   }
 
       for(let i = 0; i < 10; i++){
-    frameRate(time)
+        frameRate(time)
     fill(col[i])
    circle(l+(i), p+i*10, 60)
   }
@@ -64,5 +65,8 @@ for(i=0;i<20;i++){
     circle(l/t+(50*t*0.2), p-(t*4)+50,20)
   }
   }
-}
-}
+
+ 
+
+  
+ }
