@@ -1,72 +1,90 @@
-let colours = ['purple', 'white', 'purple', 'white']
-let colour = ['white', 'purple', 'white', 'purple']
-let col = ['purple', 'white', 'purple', 'white', 'purple', 'white', 'purple', 'white', 'white', 'purple']
-let time = 0
-let hoek = 0
+let colourPalette = [
+['green', 'red', 'blue', 'yellow', 'green', 'red', 'blue', 'yellow', 'green', 'red'], 
+['green', 'red', 'blue', 'yellow', 'green', 'red', 'blue', 'yellow', 'green', 'red'], 
+['green', 'red', 'blue', 'yellow', 'green', 'red', 'blue', 'yellow', 'green', 'red'], 
+['green', 'red', 'blue', 'yellow', 'green', 'red', 'blue', 'yellow', 'green', 'red'], 
+['green', 'red', 'blue', 'yellow', 'green', 'red', 'blue', 'yellow', 'green', 'red'], 
+['green', 'red', 'blue', 'yellow', 'green', 'red', 'blue', 'yellow', 'green', 'red']];
+
+let positionx = [];
+let positiony = [];
+let randomx;
+let randomy;
+let randomRotate;
+
 
 function setup() {
-  
+createCanvas(800,600);
  
-  createCanvas(800, 600);
-rectMode(CENTER)
- angleMode(DEGREES);
-  
+
+    randomx = random(30, 100)
+  randomy = random(100, 120)
+  randomRotate = random(0,0.000001)
+
+ 
 }
 
- function draw() {
+function draw() {
+ 
+  
   background(220);
   
-
-   
-
-
-for(i=0;i<60;i++){
-   let x = random(10, 720);
-      let y = random(10, 720);
-     let X = random(10, 785);
-      let Y = random(10, 500);
-    let l = random(10, 785);
-      let p = random(10, 585);
-
-
-  for(let i = 0; i < 4; i++){
-    frameRate(time)
-    fill(colours[i])
-    rect(x*i, y*i, 20, 20)
+ if (positionx.length > 0 && positiony.length > 0) {
+    for (let i = 0; i < 10; i++) {
+      for (let t = 0; t < 6; t++) {
+        fill(colourPalette[t][i])
+        rect(positionx[t][i], positiony[t][i], 100, 100)
+      }
+    }
   }
   
-  for(let t = 0; t < 4; t++){
-    frameRate(time)
-    fill(colour[t])
-    rect(x*t-10, y*t-10, 10, 10)
-  }
+ for(let i = 0; i<10; i++){
+   for(let j = 0; j < 6; j++){
+    rotate(randomRotate)
+      fill(colourPalette[j][i])
+  circle(randomx*i,randomy+20*j,60)
+ }
+ randomRotate+=0.00005
+}
+}
 
-    for(let i = 0; i < 4; i++){
-      frameRate(time)
-    fill(colours[i])
-    rect(X+i, Y+390/(i*2), 10, 10)
-  }
-  
-  for(let t = 0; t < 4; t++){
-    frameRate(time)
-    fill(colour[t])
-    rect(X+t+50, Y+300/(t*2)+5, 50, 50)
-  }
-
-      for(let i = 0; i < 10; i++){
-        frameRate(time)
-    fill(col[i])
-   circle(l+(i), p+i*10, 60)
-  }
-  
-  for(let t = 0; t < 10; t++){
-    frameRate(time)
-    fill(col[t])
-    circle(l/t+(50*t*0.2), p-(t*4)+50,20)
-  }
-  }
-
+function keyPressed() {
+  randomR = random(0,255)
+  randomG = random(0,255)
+  randomB = random(0,255)
  
 
-  
- }
+  if (keyCode === BACKSPACE) { 
+    colourPalette = []
+    for (let j = 0; j < 6; j++) {
+      let row = []
+      for (let i = 0; i < 10; i++) {
+        let r = random(0, 255)
+        let g = random(0, 255)
+        let b = random(0, 255)
+        
+        row.push(color(r, g, b))
+      }
+      colourPalette.push(row)
+    }
+  }
+
+  if (keyCode === ENTER) { 
+    
+    positionx = []
+    positiony = []
+
+    for (let t = 0; t < 6; t++) {
+      let rowX = []
+      let rowY = []
+      
+      for (let i = 0; i < 10; i++) {
+        rowX.push(random(0, 720))
+        rowY.push(random(0, 520))
+      }
+      
+      positionx.push(rowX)
+      positiony.push(rowY)
+    }
+  }
+}
