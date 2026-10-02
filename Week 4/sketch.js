@@ -10,16 +10,16 @@ let positionx = [];
 let positiony = [];
 let randomx;
 let randomy;
-let randomRotate;
+let randomRotate = 0.000001
 
 
 function setup() {
 createCanvas(800,600);
  
-
-    randomx = random(30, 100)
+//single-use random variables
+  randomx = random(30, 100)
   randomy = random(100, 120)
-  randomRotate = random(0,0.000001)
+ 
 
  
 }
@@ -28,7 +28,7 @@ function draw() {
  
   
   background(220);
-  
+  //squares
  if (positionx.length > 0 && positiony.length > 0) {
     for (let i = 0; i < 10; i++) {
       for (let t = 0; t < 6; t++) {
@@ -37,7 +37,7 @@ function draw() {
       }
     }
   }
-  
+  //circles
  for(let i = 0; i<10; i++){
    for(let j = 0; j < 6; j++){
     rotate(randomRotate)
@@ -49,11 +49,12 @@ function draw() {
 }
 
 function keyPressed() {
+  //random colour variables
   randomR = random(0,255)
   randomG = random(0,255)
   randomB = random(0,255)
  
-
+//colour randomizer (circle and square)
   if (keyCode === BACKSPACE) { 
     colourPalette = []
     for (let j = 0; j < 6; j++) {
@@ -68,7 +69,7 @@ function keyPressed() {
       colourPalette.push(row)
     }
   }
-
+//square position randomizer
   if (keyCode === ENTER) { 
     
     positionx = []
