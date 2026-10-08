@@ -3,6 +3,7 @@ let a = 'white'
 let b = 'black'
 let c = 'black'
 let d = 'white'
+let winscore = 0
 function setup() {
   createCanvas(800, 600);
 }
@@ -20,7 +21,7 @@ function draw() {
   if (score == 0){
   homepage()
   }
-  if(score>=1){
+  if(score>=1 && score <= 10){
     question()
   }
 if (score == 1){
@@ -43,6 +44,18 @@ if (score == 6){
 }
 if (score == 7){
   question7()
+}
+if (score == 8){
+  question8()
+}
+if (score == 9){
+  question9()
+}
+if (score == 10){
+  question10()
+}
+if(score == 11){
+  endscreen()
 }
 }
 
@@ -183,6 +196,91 @@ fill('white')
 text('Waarom houden zeeotters elkaars pootjes vast als ze in het water slapen?', 80, 200)
 }
 
+function question8(){
+textSize(20)
+fill('black')
+text('pablo picasso', 50, 380) 
+text('salvador dali', 450, 540)//goede antwoord
+fill('white')
+text('andy warhol', 450, 380)
+text('joan miró', 50, 540)
+fill('black')
+rect(70, 172, 675, 40,10)
+fill('white')
+text('Welke kunstenaar ontwierp in 1969 het logo van lollymerk Chupa Chups?', 80, 200)
+}
+
+function question9(){
+textSize(20)
+fill('black')
+text('hello world', 50, 380) 
+text('first test video', 450, 540)
+fill('white')
+text('cat jumping of couch', 450, 380)
+text('me at the zoo', 50, 540)//goede antwoord
+fill('black')
+rect(160, 172, 470, 40,10)
+fill('white')
+text('Wat was de titel van de allereerste YouTube-video?', 170, 200)
+}
+
+function question10(){
+textSize(20)
+fill('black')
+text('kwik', 50, 380) 
+text('bismut', 450, 540)
+fill('white')
+text('cesium', 450, 380)
+text('gallium', 50, 540)//goede antwoord
+fill('black')
+rect(120, 172, 570, 40,10)
+fill('white')
+text('Welk vast chemisch element smelt al in de palm van je hand?', 130, 200)
+}
+
+function endscreen(){
+  fill('black')
+  rect(300, 100, 200, 400, 30)
+  fill('white')
+  if(winscore <= 3){
+    textSize(50)
+    text('bad', 360, 150)
+    
+    
+  }
+  if(winscore > 3 && winscore <=6){
+    textSize(50)
+    text('decent', 330, 150)
+    
+    
+  }
+  if(winscore > 6 && winscore <=9){
+    textSize(50)
+    text('good', 345, 150)
+    
+    
+  }
+    if(winscore == 10){
+    textSize(50)
+    text('perfect', 320, 150)
+    
+    
+  }
+ if(winscore <=9){
+   fill('white')
+  textSize(50)
+  text(winscore, 360, 300)
+    text('/10', 390, 300)
+ }
+ if(winscore==10){
+   fill('white')
+  textSize(50)
+  text(winscore, 335, 300)
+    text('/10', 390, 300)
+ }
+}
+
+
 function nextquestion(){
   score++
   console.log(score)
@@ -200,10 +298,12 @@ function mouseClicked() {
     // a
     if (mouseX > 0 && mouseX < 400 && mouseY > 300 && mouseY < 450) {
       nextquestion();
+      winscore++
     } 
     // b
     else if (mouseX > 400 && mouseX < 800 && mouseY > 300 && mouseY < 450) {
       nextquestion();
+      
     } 
     // c
     else if (mouseX > 0 && mouseX < 400 && mouseY > 450 && mouseY < 600) {
@@ -222,7 +322,8 @@ function mouseClicked() {
     } 
     // b
     else if (mouseX > 400 && mouseX < 800 && mouseY > 300 && mouseY < 450) {
-      nextquestion();
+      nextquestion()
+      winscore++
     } 
     // c
     else if (mouseX > 0 && mouseX < 400 && mouseY > 450 && mouseY < 600) {
@@ -250,6 +351,7 @@ function mouseClicked() {
     // d
     else if (mouseX > 400 && mouseX < 800 && mouseY > 450 && mouseY < 600) {
       nextquestion();
+      winscore++
     }
   }
     // QUESTION 4
@@ -261,6 +363,7 @@ function mouseClicked() {
     // b
     else if (mouseX > 400 && mouseX < 800 && mouseY > 300 && mouseY < 450) {
       nextquestion();
+      winscore++
     } 
     // c
     else if (mouseX > 0 && mouseX < 400 && mouseY > 450 && mouseY < 600) {
@@ -284,6 +387,7 @@ function mouseClicked() {
     // c
     else if (mouseX > 0 && mouseX < 400 && mouseY > 450 && mouseY < 600) {
       nextquestion();
+      winscore++
     } 
     // d
     else if (mouseX > 400 && mouseX < 800 && mouseY > 450 && mouseY < 600) {
@@ -295,6 +399,7 @@ function mouseClicked() {
     // a
     if (mouseX > 0 && mouseX < 400 && mouseY > 300 && mouseY < 450) {
       nextquestion();
+      winscore++
     } 
     // b
     else if (mouseX > 400 && mouseX < 800 && mouseY > 300 && mouseY < 450) {
@@ -318,6 +423,7 @@ function mouseClicked() {
     // b
     else if (mouseX > 400 && mouseX < 800 && mouseY > 300 && mouseY < 450) {
       nextquestion();
+      winscore++
     } 
     // c
     else if (mouseX > 0 && mouseX < 400 && mouseY > 450 && mouseY < 600) {
@@ -345,6 +451,7 @@ function mouseClicked() {
     // d
     else if (mouseX > 400 && mouseX < 800 && mouseY > 450 && mouseY < 600) {
       nextquestion();
+      winscore++
     }
   }
     // QUESTION 9
@@ -360,6 +467,7 @@ function mouseClicked() {
     // c
     else if (mouseX > 0 && mouseX < 400 && mouseY > 450 && mouseY < 600) {
       nextquestion();
+      winscore++
     } 
     // d
     else if (mouseX > 400 && mouseX < 800 && mouseY > 450 && mouseY < 600) {
@@ -379,6 +487,7 @@ function mouseClicked() {
     // c
     else if (mouseX > 0 && mouseX < 400 && mouseY > 450 && mouseY < 600) {
       nextquestion();
+      winscore++
     } 
     // d
     else if (mouseX > 400 && mouseX < 800 && mouseY > 450 && mouseY < 600) {
