@@ -18,19 +18,20 @@ function draw() {
 }
 
 
-  if (score == 0 ){
+
+//QUESTIONS AND AWNSERS ON SCREEN
+if (score == 0 ){
   homepage()
-  }
-  if(score>=1 && score <=20){
-    question()
-  }
-  if(score == 21){
-    endscreen()
-  }
+}
+if(score>=1 && score <=20){
+  question()
+}
+if(score == 21){
+  endscreen()
+}
 if (score == 1){
   question1()
 }
-
 if(score == 2){
 question1()
  a = 'green'
@@ -112,7 +113,7 @@ if(score == 20){
 
 
 
-
+//HOMEPAGE
 function homepage(){
 for(i=0;i<8;i++){
   for(j=0; j<6; j++){
@@ -128,13 +129,14 @@ for(i=0;i<8;i++){
 
 
 }
-
+//QUESTION BASEPLATE
 function question(){
-  for(i=0;i<8;i++){
+for(i=0;i<8;i++){
   for(j=0; j<6; j++){
     fill(0+i*20+j*20)
     rect(0+i*100,0+j*100,100,100)
-  }}
+  }
+}
   line(400, 300, 400, 600)
 line(0, 300, 800, 300)
 line(0,450,800,450)
@@ -149,6 +151,7 @@ rect(400, 450, 400, 150)
 
 }
 
+//QUESTIONS
 function question1(){
 textSize(20)
 fill('black')
@@ -162,8 +165,6 @@ rect(140, 172, 520, 40,10)
 fill('white')
 text('Welke unieke vorm heeft de ontlasting van een wombat?', 150, 200)
 }
-
-
 
 function question2(){
 textSize(20)
@@ -291,9 +292,16 @@ fill('white')
 text('Welk vast chemisch element smelt al in de palm van je hand?', 130, 200)
 }
 
+
+//ENDSCREEN+SCORE
 function endscreen(){
+ 
   fill('black')
   rect(300, 100, 200, 400, 30)
+   fill('lightgray')
+  rect(325, 425, 150, 50, 20)
+  fill('black')
+  text('retry', 350, 462)
   fill('white')
   if(winscore <= 3){
     textSize(50)
@@ -322,8 +330,8 @@ function endscreen(){
  if(winscore <=9){
    fill('white')
   textSize(50)
-  text(winscore, 360, 300)
-    text('/10', 390, 300)
+  text(winscore, 355, 300)
+    text('/10', 385, 300)
  }
  if(winscore==10){
    fill('white')
@@ -333,12 +341,14 @@ function endscreen(){
  }
 }
 
-
+//QUESTION CHANGE
 function nextquestion(){
   score++
   console.log(score)
 }
 
+
+//MOUSECLICKS
 function mouseClicked() {
   // HOMEPAGE
   if (score == 0) {
@@ -549,10 +559,6 @@ function mouseClicked() {
   }
 
 
-
-
-
-
    else if (score == 2) {
     // a
     if (mouseX > 0 && mouseX < 400 && mouseY > 300 && mouseY < 450) {
@@ -753,5 +759,16 @@ function mouseClicked() {
       nextquestion();
     }
   }
+
+
+//RETRY
+   if(score == 21){
+   if(mouseX > 325 && mouseX < 475 && mouseY > 425 && mouseY < 475){
+    winscore = 0
+    score = 0
+    c = 'black'
+    }
+  }
+
 }
 
