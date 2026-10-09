@@ -18,44 +18,95 @@ function draw() {
 }
 
 
-  if (score == 0){
+  if (score == 0 ){
   homepage()
   }
-  if(score>=1 && score <= 10){
+  if(score>=1 && score <=20){
     question()
+  }
+  if(score == 21){
+    endscreen()
   }
 if (score == 1){
   question1()
 }
-if (score == 2){
-  question2()
+
+if(score == 2){
+question1()
+ a = 'green'
 }
 if (score == 3){
-  question3()
+  question2()
+  a = 'white'
 }
 if (score == 4){
-  question4()
+  question2()
+b = 'green'
 }
 if (score == 5){
-  question5()
+  question3()
+  b = 'black'
 }
 if (score == 6){
-  question6()
+  question3()
+  d = 'green'
 }
 if (score == 7){
-  question7()
+  question4()
+  d = 'white'
 }
 if (score == 8){
-  question8()
+  question4()
+  b = 'green'
 }
 if (score == 9){
-  question9()
+  question5()
+  b = 'black'
 }
 if (score == 10){
-  question10()
+  question5()
+  c = 'green'
+
 }
 if(score == 11){
-  endscreen()
+  question6()
+  c = 'black'
+}
+if(score == 12){
+  question6()
+  a = 'green'
+}
+if(score == 13){
+  question7()
+  a = 'white'
+}
+if(score == 14){
+  question7()
+  b = 'green'
+}
+if(score == 15){
+  question8()
+  b = 'black'
+}
+if(score == 16){
+  question8()
+  d = 'green'
+}
+if(score == 17){
+  question9()
+  d = 'white'
+}
+if(score == 18){
+  question9()
+  c = 'green'
+}
+if(score == 19){
+  question10()
+  c = 'black'
+}
+if(score == 20){
+  question10()
+  c = 'green'
 }
 }
 
@@ -70,10 +121,10 @@ for(i=0;i<8;i++){
   }
 }
   fill('black')
-  rect(290, 195, 215, 60, 10)
+  rect(290, 195, 230, 60, 10)
   fill('white')
   textSize(50)
-  text('start quiz',297, 240)
+  text('Start quiz!',292, 240)
 
 
 }
@@ -101,25 +152,27 @@ rect(400, 450, 400, 150)
 function question1(){
 textSize(20)
 fill('black')
-text('kubusvormig', 50, 380) //goede antwoord
-text('spiraalvormig', 450, 540)
+text('Kubusvormig', 50, 380) //goede antwoord
+text('Spiraalvormig', 450, 540)
 fill('white')
-text('kegelvormig', 450, 380)
-text('stervormig', 50, 540)
+text('Kegelvormig', 450, 380)
+text('Stervormig', 50, 540)
 fill('black')
 rect(140, 172, 520, 40,10)
 fill('white')
 text('Welke unieke vorm heeft de ontlasting van een wombat?', 150, 200)
 }
 
+
+
 function question2(){
 textSize(20)
 fill('black')
-text('nicolas cage', 50, 380)
-text('keanu reeves', 450, 540)
+text('Nicolas Cage', 50, 380)
+text('Keanu Reeves', 450, 540)
 fill('white')
-text('steve buscemi', 450, 380)//goede antwoord
-text('tom hanks', 50, 540)
+text('Steve Buscemi', 450, 380)//goede antwoord
+text('Tom Hanks', 50, 540)
 fill('black')
 rect(110, 172, 590, 40,10)
 fill('white')
@@ -129,11 +182,11 @@ text('Welke Hollywood-acteur werkte als brandweerman tijdens 9-11?', 120, 200)
 function question3(){
 textSize(20)
 fill('black')
-text('een zilveren lepel', 50, 380)
-text('een houten emmer', 450, 540)//goede antwoord
+text('Een zilveren lepel', 50, 380)
+text('Een houten emmer', 450, 540)//goede antwoord
 fill('white')
-text('een koperen kroonluchter', 450, 380)
-text('een linnen vlag', 50, 540)
+text('Een koperen kroonluchter', 450, 380)
+text('Een linnen vlag', 50, 540)
 fill('black')
 rect(110, 172, 580, 40,10)
 fill('white')
@@ -143,25 +196,25 @@ text('Over welk voorwerp werd in 1325 oorlog uitgevochten in Italië?', 120, 200
 function question4(){
 textSize(20)
 fill('black')
-text('vloeibaar goud', 50, 380)
-text('zwavelzuur', 450, 540)
+text('Vloeibaar goud', 50, 380)
+text('Zwavelzuur', 450, 540)
 fill('white')
-text('diamanten', 450, 380)//goede antwoord
-text('ijskristallen', 50, 540)
+text('Diamanten', 450, 380)//goede antwoord
+text('Ijskristallen', 50, 540)
 fill('black')
 rect(170, 172, 460, 40,10)
 fill('white')
-text('op de gasreuzen Jupiter en Saturnus regent het...', 180, 200)
+text('Op de gasreuzen Jupiter en Saturnus regent het...', 180, 200)
 }
 
 function question5(){
 textSize(20)
 fill('black')
-text('bemanning van een containerschip', 50, 380)
-text('wetenschappers op paaseiland', 450, 540)
+text('Bemanning van een containerschip', 50, 380)
+text('Wetenschappers op paaseiland', 450, 540)
 fill('white')
-text('wetenschappers op antartica', 450, 380)
-text('de bemanning van het ISS', 50, 540)//goede antwoord
+text('Wetenschappers op antartica', 450, 380)
+text('De bemanning van het ISS', 50, 540)//goede antwoord
 fill('black')
 rect(90, 172, 620, 40,10)
 fill('white')
@@ -171,25 +224,25 @@ text('Wie zijn de dichtstbijzijnde mensen als je je bevindt op Point Nemo?', 100
 function question6(){
 textSize(20)
 fill('black')
-text('paars en geel', 50, 380) //goede antwoord
-text('grijs en zwart', 450, 540)
+text('Paars en Geel', 50, 380) //goede antwoord
+text('Grijs en Zwart', 450, 540)
 fill('white')
-text('rood', 450, 380)
-text('felgroen', 50, 540)
+text('Rood', 450, 380)
+text('Felgroen', 50, 540)
 fill('black')
 rect(190, 172, 435, 40,10)
 fill('white')
-text('welke kleur hadden wortels voor de 17e eeuw?', 200, 200)
+text('Welke kleur hadden wortels voor de 17e eeuw?', 200, 200)
 }
 
 function question7(){
 textSize(20)
 fill('black')
-text('angst voor roofdieren', 50, 380) 
-text('elkaar warm houden', 450, 540)
+text('Angst voor roofdieren', 50, 380) 
+text('Elkaar warm houden', 450, 540)
 fill('white')
-text('voorkomen dat ze wegdrijven', 450, 380)//goede antwoord
-text('een dominantieritueel', 50, 540)
+text('Voorkomen dat ze wegdrijven', 450, 380)//goede antwoord
+text('Een dominantieritueel', 50, 540)
 fill('black')
 rect(70, 172, 675, 40,10)
 fill('white')
@@ -199,11 +252,11 @@ text('Waarom houden zeeotters elkaars pootjes vast als ze in het water slapen?',
 function question8(){
 textSize(20)
 fill('black')
-text('pablo picasso', 50, 380) 
-text('salvador dali', 450, 540)//goede antwoord
+text('Pablo Picasso', 50, 380) 
+text('Salvador Dali', 450, 540)//goede antwoord
 fill('white')
-text('andy warhol', 450, 380)
-text('joan miró', 50, 540)
+text('Andy Warhol', 450, 380)
+text('Joan Miró', 50, 540)
 fill('black')
 rect(70, 172, 675, 40,10)
 fill('white')
@@ -213,11 +266,11 @@ text('Welke kunstenaar ontwierp in 1969 het logo van lollymerk Chupa Chups?', 80
 function question9(){
 textSize(20)
 fill('black')
-text('hello world', 50, 380) 
-text('first test video', 450, 540)
+text('Hello World!', 50, 380) 
+text('First Test Video', 450, 540)
 fill('white')
-text('cat jumping of couch', 450, 380)
-text('me at the zoo', 50, 540)//goede antwoord
+text('Cat jumping of couch', 450, 380)
+text('Me at the zoo', 50, 540)//goede antwoord
 fill('black')
 rect(160, 172, 470, 40,10)
 fill('white')
@@ -227,11 +280,11 @@ text('Wat was de titel van de allereerste YouTube-video?', 170, 200)
 function question10(){
 textSize(20)
 fill('black')
-text('kwik', 50, 380) 
-text('bismut', 450, 540)
+text('Kwik', 50, 380) 
+text('Bismut', 450, 540)
 fill('white')
-text('cesium', 450, 380)
-text('gallium', 50, 540)//goede antwoord
+text('Koper', 450, 380)
+text('Gallium', 50, 540)//goede antwoord
 fill('black')
 rect(120, 172, 570, 40,10)
 fill('white')
@@ -250,7 +303,7 @@ function endscreen(){
   }
   if(winscore > 3 && winscore <=6){
     textSize(50)
-    text('decent', 330, 150)
+    text('decent', 327, 150)
     
     
   }
@@ -289,7 +342,7 @@ function nextquestion(){
 function mouseClicked() {
   // HOMEPAGE
   if (score == 0) {
-    if (mouseX > 290 && mouseX < 505 && mouseY > 195 && mouseY < 255) {
+    if (mouseX > 290 && mouseX < 520 && mouseY > 195 && mouseY < 255) {
       nextquestion();
     }
   } 
@@ -315,7 +368,7 @@ function mouseClicked() {
     }
   } 
   // QUESTION 2
-  else if (score == 2) {
+  else if (score == 3) {
     // a
     if (mouseX > 0 && mouseX < 400 && mouseY > 300 && mouseY < 450) {
       nextquestion();
@@ -335,7 +388,7 @@ function mouseClicked() {
     }
   }
      // QUESTION 3
-  else if (score == 3) {
+  else if (score == 5) {
     // a
     if (mouseX > 0 && mouseX < 400 && mouseY > 300 && mouseY < 450) {
       nextquestion();
@@ -355,66 +408,6 @@ function mouseClicked() {
     }
   }
     // QUESTION 4
-  else if (score == 4) {
-    // a
-    if (mouseX > 0 && mouseX < 400 && mouseY > 300 && mouseY < 450) {
-      nextquestion();
-    } 
-    // b
-    else if (mouseX > 400 && mouseX < 800 && mouseY > 300 && mouseY < 450) {
-      nextquestion();
-      winscore++
-    } 
-    // c
-    else if (mouseX > 0 && mouseX < 400 && mouseY > 450 && mouseY < 600) {
-      nextquestion();
-    } 
-    // d
-    else if (mouseX > 400 && mouseX < 800 && mouseY > 450 && mouseY < 600) {
-      nextquestion();
-    }
-  }
-    // QUESTION 5
-  else if (score == 5) {
-    // a
-    if (mouseX > 0 && mouseX < 400 && mouseY > 300 && mouseY < 450) {
-      nextquestion();
-    } 
-    // b
-    else if (mouseX > 400 && mouseX < 800 && mouseY > 300 && mouseY < 450) {
-      nextquestion();
-    } 
-    // c
-    else if (mouseX > 0 && mouseX < 400 && mouseY > 450 && mouseY < 600) {
-      nextquestion();
-      winscore++
-    } 
-    // d
-    else if (mouseX > 400 && mouseX < 800 && mouseY > 450 && mouseY < 600) {
-      nextquestion();
-    }
-  }
-    // QUESTION 6
-  else if (score == 6) {
-    // a
-    if (mouseX > 0 && mouseX < 400 && mouseY > 300 && mouseY < 450) {
-      nextquestion();
-      winscore++
-    } 
-    // b
-    else if (mouseX > 400 && mouseX < 800 && mouseY > 300 && mouseY < 450) {
-      nextquestion();
-    } 
-    // c
-    else if (mouseX > 0 && mouseX < 400 && mouseY > 450 && mouseY < 600) {
-      nextquestion();
-    } 
-    // d
-    else if (mouseX > 400 && mouseX < 800 && mouseY > 450 && mouseY < 600) {
-      nextquestion();
-    }
-  }
-    // QUESTION 7
   else if (score == 7) {
     // a
     if (mouseX > 0 && mouseX < 400 && mouseY > 300 && mouseY < 450) {
@@ -434,27 +427,7 @@ function mouseClicked() {
       nextquestion();
     }
   }
-    // QUESTION 8
-  else if (score == 8) {
-    // a
-    if (mouseX > 0 && mouseX < 400 && mouseY > 300 && mouseY < 450) {
-      nextquestion();
-    } 
-    // b
-    else if (mouseX > 400 && mouseX < 800 && mouseY > 300 && mouseY < 450) {
-      nextquestion();
-    } 
-    // c
-    else if (mouseX > 0 && mouseX < 400 && mouseY > 450 && mouseY < 600) {
-      nextquestion();
-    } 
-    // d
-    else if (mouseX > 400 && mouseX < 800 && mouseY > 450 && mouseY < 600) {
-      nextquestion();
-      winscore++
-    }
-  }
-    // QUESTION 9
+    // QUESTION 5
   else if (score == 9) {
     // a
     if (mouseX > 0 && mouseX < 400 && mouseY > 300 && mouseY < 450) {
@@ -474,8 +447,68 @@ function mouseClicked() {
       nextquestion();
     }
   }
-    // QUESTION 10
-  else if (score == 10) {
+    // QUESTION 6
+  else if (score == 11) {
+    // a
+    if (mouseX > 0 && mouseX < 400 && mouseY > 300 && mouseY < 450) {
+      nextquestion();
+      winscore++
+    } 
+    // b
+    else if (mouseX > 400 && mouseX < 800 && mouseY > 300 && mouseY < 450) {
+      nextquestion();
+    } 
+    // c
+    else if (mouseX > 0 && mouseX < 400 && mouseY > 450 && mouseY < 600) {
+      nextquestion();
+    } 
+    // d
+    else if (mouseX > 400 && mouseX < 800 && mouseY > 450 && mouseY < 600) {
+      nextquestion();
+    }
+  }
+    // QUESTION 7
+  else if (score == 13) {
+    // a
+    if (mouseX > 0 && mouseX < 400 && mouseY > 300 && mouseY < 450) {
+      nextquestion();
+    } 
+    // b
+    else if (mouseX > 400 && mouseX < 800 && mouseY > 300 && mouseY < 450) {
+      nextquestion();
+      winscore++
+    } 
+    // c
+    else if (mouseX > 0 && mouseX < 400 && mouseY > 450 && mouseY < 600) {
+      nextquestion();
+    } 
+    // d
+    else if (mouseX > 400 && mouseX < 800 && mouseY > 450 && mouseY < 600) {
+      nextquestion();
+    }
+  }
+    // QUESTION 8
+  else if (score == 15) {
+    // a
+    if (mouseX > 0 && mouseX < 400 && mouseY > 300 && mouseY < 450) {
+      nextquestion();
+    } 
+    // b
+    else if (mouseX > 400 && mouseX < 800 && mouseY > 300 && mouseY < 450) {
+      nextquestion();
+    } 
+    // c
+    else if (mouseX > 0 && mouseX < 400 && mouseY > 450 && mouseY < 600) {
+      nextquestion();
+    } 
+    // d
+    else if (mouseX > 400 && mouseX < 800 && mouseY > 450 && mouseY < 600) {
+      nextquestion();
+      winscore++
+    }
+  }
+    // QUESTION 9
+  else if (score == 17) {
     // a
     if (mouseX > 0 && mouseX < 400 && mouseY > 300 && mouseY < 450) {
       nextquestion();
@@ -494,4 +527,231 @@ function mouseClicked() {
       nextquestion();
     }
   }
+    // QUESTION 10
+  else if (score == 19) {
+    // a
+    if (mouseX > 0 && mouseX < 400 && mouseY > 300 && mouseY < 450) {
+      nextquestion();
+    } 
+    // b
+    else if (mouseX > 400 && mouseX < 800 && mouseY > 300 && mouseY < 450) {
+      nextquestion();
+    } 
+    // c
+    else if (mouseX > 0 && mouseX < 400 && mouseY > 450 && mouseY < 600) {
+      nextquestion();
+      winscore++
+    } 
+    // d
+    else if (mouseX > 400 && mouseX < 800 && mouseY > 450 && mouseY < 600) {
+      nextquestion();
+    }
+  }
+
+
+
+
+
+
+   else if (score == 2) {
+    // a
+    if (mouseX > 0 && mouseX < 400 && mouseY > 300 && mouseY < 450) {
+      nextquestion();
+      
+    } 
+    // b
+    else if (mouseX > 400 && mouseX < 800 && mouseY > 300 && mouseY < 450) {
+      nextquestion();
+      
+    } 
+    // c
+    else if (mouseX > 0 && mouseX < 400 && mouseY > 450 && mouseY < 600) {
+      nextquestion();
+    } 
+    // d
+    else if (mouseX > 400 && mouseX < 800 && mouseY > 450 && mouseY < 600) {
+      nextquestion();
+    }
+  } 
+  // QUESTION 2
+  else if (score == 4) {
+    // a
+    if (mouseX > 0 && mouseX < 400 && mouseY > 300 && mouseY < 450) {
+      nextquestion();
+    } 
+    // b
+    else if (mouseX > 400 && mouseX < 800 && mouseY > 300 && mouseY < 450) {
+      nextquestion()
+      
+    } 
+    // c
+    else if (mouseX > 0 && mouseX < 400 && mouseY > 450 && mouseY < 600) {
+      nextquestion();
+    } 
+    // d
+    else if (mouseX > 400 && mouseX < 800 && mouseY > 450 && mouseY < 600) {
+      nextquestion();
+    }
+  }
+     // QUESTION 3
+  else if (score == 6) {
+    // a
+    if (mouseX > 0 && mouseX < 400 && mouseY > 300 && mouseY < 450) {
+      nextquestion();
+    } 
+    // b
+    else if (mouseX > 400 && mouseX < 800 && mouseY > 300 && mouseY < 450) {
+      nextquestion();
+    } 
+    // c
+    else if (mouseX > 0 && mouseX < 400 && mouseY > 450 && mouseY < 600) {
+      nextquestion();
+    } 
+    // d
+    else if (mouseX > 400 && mouseX < 800 && mouseY > 450 && mouseY < 600) {
+      nextquestion();
+     
+    }
+  }
+    // QUESTION 4
+  else if (score == 8) {
+    // a
+    if (mouseX > 0 && mouseX < 400 && mouseY > 300 && mouseY < 450) {
+      nextquestion();
+    } 
+    // b
+    else if (mouseX > 400 && mouseX < 800 && mouseY > 300 && mouseY < 450) {
+      nextquestion();
+     
+    } 
+    // c
+    else if (mouseX > 0 && mouseX < 400 && mouseY > 450 && mouseY < 600) {
+      nextquestion();
+    } 
+    // d
+    else if (mouseX > 400 && mouseX < 800 && mouseY > 450 && mouseY < 600) {
+      nextquestion();
+    }
+  }
+    // QUESTION 5
+  else if (score == 10) {
+    // a
+    if (mouseX > 0 && mouseX < 400 && mouseY > 300 && mouseY < 450) {
+      nextquestion();
+    } 
+    // b
+    else if (mouseX > 400 && mouseX < 800 && mouseY > 300 && mouseY < 450) {
+      nextquestion();
+    } 
+    // c
+    else if (mouseX > 0 && mouseX < 400 && mouseY > 450 && mouseY < 600) {
+      nextquestion();
+      
+    } 
+    // d
+    else if (mouseX > 400 && mouseX < 800 && mouseY > 450 && mouseY < 600) {
+      nextquestion();
+    }
+  }
+    // QUESTION 6
+  else if (score == 12) {
+    // a
+    if (mouseX > 0 && mouseX < 400 && mouseY > 300 && mouseY < 450) {
+      nextquestion();
+    
+    } 
+    // b
+    else if (mouseX > 400 && mouseX < 800 && mouseY > 300 && mouseY < 450) {
+      nextquestion();
+    } 
+    // c
+    else if (mouseX > 0 && mouseX < 400 && mouseY > 450 && mouseY < 600) {
+      nextquestion();
+    } 
+    // d
+    else if (mouseX > 400 && mouseX < 800 && mouseY > 450 && mouseY < 600) {
+      nextquestion();
+    }
+  }
+    // QUESTION 7
+  else if (score == 14) {
+    // a
+    if (mouseX > 0 && mouseX < 400 && mouseY > 300 && mouseY < 450) {
+      nextquestion();
+    } 
+    // b
+    else if (mouseX > 400 && mouseX < 800 && mouseY > 300 && mouseY < 450) {
+      nextquestion();
+    
+    } 
+    // c
+    else if (mouseX > 0 && mouseX < 400 && mouseY > 450 && mouseY < 600) {
+      nextquestion();
+    } 
+    // d
+    else if (mouseX > 400 && mouseX < 800 && mouseY > 450 && mouseY < 600) {
+      nextquestion();
+    }
+  }
+    // QUESTION 8
+  else if (score == 16) {
+    // a
+    if (mouseX > 0 && mouseX < 400 && mouseY > 300 && mouseY < 450) {
+      nextquestion();
+    } 
+    // b
+    else if (mouseX > 400 && mouseX < 800 && mouseY > 300 && mouseY < 450) {
+      nextquestion();
+    } 
+    // c
+    else if (mouseX > 0 && mouseX < 400 && mouseY > 450 && mouseY < 600) {
+      nextquestion();
+    } 
+    // d
+    else if (mouseX > 400 && mouseX < 800 && mouseY > 450 && mouseY < 600) {
+      nextquestion();
+     
+    }
+  }
+    // QUESTION 9
+  else if (score == 18) {
+    // a
+    if (mouseX > 0 && mouseX < 400 && mouseY > 300 && mouseY < 450) {
+      nextquestion();
+    } 
+    // b
+    else if (mouseX > 400 && mouseX < 800 && mouseY > 300 && mouseY < 450) {
+      nextquestion();
+    } 
+    // c
+    else if (mouseX > 0 && mouseX < 400 && mouseY > 450 && mouseY < 600) {
+      nextquestion();
+    
+    } 
+    // d
+    else if (mouseX > 400 && mouseX < 800 && mouseY > 450 && mouseY < 600) {
+      nextquestion();
+    }
+  }
+    // QUESTION 10
+  else if (score == 20) {
+    // a
+    if (mouseX > 0 && mouseX < 400 && mouseY > 300 && mouseY < 450) {
+      nextquestion();
+    } 
+    // b
+    else if (mouseX > 400 && mouseX < 800 && mouseY > 300 && mouseY < 450) {
+      nextquestion();
+    } 
+    // c
+    else if (mouseX > 0 && mouseX < 400 && mouseY > 450 && mouseY < 600) {
+      nextquestion();
+      
+    } 
+    // d
+    else if (mouseX > 400 && mouseX < 800 && mouseY > 450 && mouseY < 600) {
+      nextquestion();
+    }
+  }
 }
+
