@@ -7,6 +7,8 @@ let health = 100
 let drunk = 0
 let thirst = 100
 let eatscore = 0
+let food = 0
+let drink = 0
 function preload() {
 
   img1 = loadImage('./hoge heer.png');
@@ -15,6 +17,8 @@ function preload() {
 
 function setup() {
   createCanvas(1000, 600);
+  console.log(food);
+  
 } 
 function draw() {
   if(happy >= 0){
@@ -35,6 +39,39 @@ function draw() {
   }
   if(hunger > 100){
   hunger = 100
+  }
+  if(happy > 100){
+  happy = 100
+  }
+   if(thirst > 100){
+  thirst = 100
+  }
+  if(drunk > 100){
+    drunk = 100
+  }
+  if(health > 100){
+    health = 100
+  }
+  if(energy > 100){
+    energy = 100
+  }
+    if(hunger < 0){
+  hunger = 0
+  }
+  if(happy < 0){
+  happy = 0
+  }
+   if(thirst < 0){
+  thirst = 0
+  }
+  if(drunk < 0){
+    drunk = 0
+  }
+  if(health < 0){
+    health = 0
+  }
+  if(energy < 0){
+    energy = 0
   }
 
 image(img2, 0, 0, 1000, 600); 
@@ -64,16 +101,23 @@ fill('skyblue')
 rect(160, 70, thirst, 10)
 
  fill('#c79e78')
- rect(300, 10, 100, 70)
-
-
-food();
-
+ rect(300, 10, 105, 70, 10)
+ rect(410, 10, 145, 70, 10)
+ fill('black')
+ textSize(50)
+ text('food', 305, 60)
+text('drinks', 415, 60)
+if(food==1){
+  foods()
+}
+if(drink==1){
+  drinks()
+}
 }
 
-function food(){
+function foods(){
   fill('#c79e78')
-  rect(300, 110, 400, 220, 20)
+  rect(300, 110, 400, 270, 20)
   textSize(50)
   text('🍖', 300, 170)
   text('🐟', 300, 230)
@@ -86,6 +130,7 @@ function food(){
   rect(650, 139, 40, 30, 10)
   rect(650, 199, 40, 30, 10)
   rect(650, 269, 40, 30, 10)
+  rect(480, 330, 40, 30, 10)
   textSize(20)
   fill('black')
   text('fills 30 hunger', 370, 160)
@@ -94,18 +139,90 @@ function food(){
   text('eat', 655, 160)
   text('eat', 655, 220)
   text('eat', 655, 290)
-  
+  text('exit', 485, 352)
 }
 
+function drinks(){
+  fill('#c79e78')
+  rect(300, 110, 400, 270, 20)
+  textSize(50)
+  text('🍺', 300, 170)
+  text('💧', 300, 230)
+  
+  fill('lightgray')
+  rect(365, 139, 115, 30, 10)
+  rect(365, 199, 115, 30, 10)
+
+
+  rect(650, 139, 40, 30, 10)
+  rect(650, 199, 40, 30, 10)
+  
+  rect(480, 330, 40, 30, 10)
+  textSize(20)
+  fill('black')
+  text('fills 10 thirst', 370, 160)
+  text('fills 30 thirst', 370, 220)
+  
+  text('eat', 655, 160)
+  text('eat', 655, 220)
+ 
+  text('exit', 485, 352)
+}
+
+
 function mouseClicked(){
+
+  //eating
+  if(food == 1){
+    if(mouseX >= 480 && mouseX <= 520 && mouseY >= 330 && mouseY <= 360){
+   food = 0
+  }
   if(mouseX >= 650 && mouseX <= 690 && mouseY >= 139 && mouseY <= 169){
     hunger += 30
+    happy += 5
+    food = 0
   }
   if(mouseX >= 650 && mouseX <= 690 && mouseY >= 199 && mouseY <= 239){
     hunger += 20
+    food = 0
   }
   if(mouseX >= 650 && mouseX <= 690 && mouseY >= 269 && mouseY <= 309){
     hunger += 10
+    happy -= 5
+    health += 5
+    food = 0
+  }
+}
+if(food == 0){
+  if(mouseX >= 300 && mouseX <= 405 && mouseY >= 10 && mouseY <= 80){
+   food = 1
+  }
+}
+
+
+//drinking
+  if(drink == 1){
+    if(mouseX >= 480 && mouseX <= 520 && mouseY >= 330 && mouseY <= 360){
+   drink = 0
+  }
+  if(mouseX >= 650 && mouseX <= 690 && mouseY >= 139 && mouseY <= 169){
+    thirst += 10
+    happy += 20
+    drunk += 20
+    drink = 0
+  }
+  if(mouseX >= 650 && mouseX <= 690 && mouseY >= 199 && mouseY <= 239){
+    thirst += 30
+    health -= 20
+    drunk -= 10
+    drink = 0
   }
 
+  
+} rect(410, 10, 145, 70, 10)
+if(drink == 0){
+  if(mouseX >= 410 && mouseX <= 555 && mouseY >= 10 && mouseY <= 80){
+   drink = 1
+  }
+}
 }
