@@ -32,10 +32,13 @@ function draw() {
   }
 
     if(drunk >= 0){
-    drunk -= 0.01666666666
+    drunk -= 0.00555555555
   }
     if(thirst >= 0){
     thirst -= 0.03333333333
+  }
+  if(health <= 100){
+    health+=0.00555555555
   }
   if(hunger > 100){
   hunger = 100
@@ -154,17 +157,17 @@ function drinks(){
   rect(365, 199, 115, 30, 10)
 
 
-  rect(650, 139, 40, 30, 10)
-  rect(650, 199, 40, 30, 10)
+  rect(635, 139, 55, 30, 10)
+  rect(635, 199, 55, 30, 10)
   
   rect(480, 330, 40, 30, 10)
   textSize(20)
   fill('black')
-  text('fills 10 thirst', 370, 160)
-  text('fills 30 thirst', 370, 220)
+  text('fills 5 thirst', 370, 160)
+  text('fills 15 thirst', 370, 220)
   
-  text('eat', 655, 160)
-  text('eat', 655, 220)
+  text('drink', 640, 160)
+  text('drink', 640, 220)
  
   text('exit', 485, 352)
 }
@@ -196,6 +199,7 @@ function mouseClicked(){
 if(food == 0){
   if(mouseX >= 300 && mouseX <= 405 && mouseY >= 10 && mouseY <= 80){
    food = 1
+drink = 0
   }
 }
 
@@ -206,13 +210,13 @@ if(food == 0){
    drink = 0
   }
   if(mouseX >= 650 && mouseX <= 690 && mouseY >= 139 && mouseY <= 169){
-    thirst += 10
+    thirst += 5
     happy += 20
     drunk += 20
     drink = 0
   }
   if(mouseX >= 650 && mouseX <= 690 && mouseY >= 199 && mouseY <= 239){
-    thirst += 30
+    thirst += 15
     health -= 20
     drunk -= 10
     drink = 0
@@ -223,6 +227,7 @@ if(food == 0){
 if(drink == 0){
   if(mouseX >= 410 && mouseX <= 555 && mouseY >= 10 && mouseY <= 80){
    drink = 1
+   food = 0
   }
 }
 }
