@@ -3,6 +3,9 @@ let img2;
 let img3;
 let img4;
 let img5;
+let img6;
+let img7;
+let img8;
 let happy = 100
 let energy = 100
 let hunger = 100
@@ -14,12 +17,15 @@ let food = 0
 let drink = 0
 let sleeps = 0
 function preload() {
-
+//images
   img1 = loadImage('./hoge heer.png');
   img2 = loadImage('./kamer.png');
   img3 = loadImage('./hoge-heer-energy-low2.png');
-  img4 =  loadImage('./hoge-heer-health-0.png')
+  img4 =  loadImage('./hoge-heer-health-0-2.png')
   img5 =  loadImage('./hoge-heer-hunger-low.png')
+  img6 =  loadImage('./hoge-heer-hunger_energy-low.png')
+  img7 =  loadImage('./hoge-heer-sick-and-hungry_1.png')
+  img8 =  loadImage('./hoge-heer-sick.png')
 }
 
 function setup() {
@@ -28,11 +34,19 @@ function setup() {
   
 } 
 function draw() {
+  //calculations for the bars
+  if(thirst == 0 && hunger == 0){
+    health -= 0.03333333333
+  } else if(thirst == 0){
+    health -= 0.01666666666
+  } else if(hunger == 0){
+    health -= 0.01666666666
+  }
   if(happy >= 0){
     happy -= 0.01666666666
   }
     if(energy >= 0){
-    energy -= 0.01666666666
+    energy -= 0.03333333333
   }
     if(hunger >= 0){
     hunger -=  0.03333333333
@@ -44,7 +58,6 @@ function draw() {
     if(thirst >= 0){
     thirst -= 0.03333333333
   }
- 
   if(hunger > 100){
   hunger = 100
   }
@@ -82,9 +95,16 @@ function draw() {
     energy = 0
   }
 
+//calculation for the figure
 image(img2, 0, 0, 1000, 600); 
 if(health == 0){
   image(img4, 500, 300, 150, 280)
+}else if(health <= 50 && hunger <=30){
+  image(img7, 500, 300, 150, 280) 
+}else if(health <= 50){
+   image(img8, 500, 300, 150, 280)
+}else if(hunger <= 30 && energy <= 30){
+  image(img6, 500, 300, 150, 280)
 }else if(hunger <= 30){
   image(img5, 500, 300, 150, 280)
 }else if(energy <= 30){
@@ -92,6 +112,8 @@ if(health == 0){
 }else{
 image(img1, 500, 300, 150, 280); 
 }
+
+//bar for options
 fill('#A87545') 
 rect(0, -10, 1000, 100, 10)
 textSize(15)
@@ -134,6 +156,8 @@ rect(160, 70, thirst, 10)
  text('food', 305, 60)
 text('drinks', 415, 60)
 text('sleep', 565, 60)
+
+//optionselects and deathscreen
 if(food==1){
   foods()
 }
@@ -145,9 +169,15 @@ if(sleeps==1){
 }
 if(health == 0){
 dead()
+happy = 0
+energy = 0
+hunger = 0
+drunk = 0
+thirst = 0
 }
 }
 
+//foods options
 function foods(){
   fill('#c79e78')
   rect(300, 110, 400, 270, 20)
@@ -175,6 +205,7 @@ function foods(){
   text('exit', 485, 352)
 }
 
+//drinks options
 function drinks(){
   fill('#c79e78')
   rect(300, 110, 400, 270, 20)
@@ -202,8 +233,8 @@ function drinks(){
   text('exit', 485, 352)
 }
 
+//sleeping options
 function sleep(){
-  
   fill('#c79e78')
   rect(300, 110, 400, 270, 20)
   textSize(50)
@@ -230,7 +261,7 @@ function sleep(){
   text('exit', 485, 352)
 }
 
-
+//deathscreen
 function dead(){
   fill(0,0,0,160)
   rect(0,0,1000,600)
@@ -238,7 +269,6 @@ function dead(){
   rect(290, 100, 420, 140, 50)
   fill('black')
   textSize(100)
-  line(500,0,500,600)
   text('He Died!', 300, 200)
   fill('lightgray')
   rect(450, 500, 100, 30, 10)
@@ -246,8 +276,9 @@ function dead(){
   textSize(20)
   text('try again',461,522)
 }
-function mouseClicked(){
 
+//button code
+function mouseClicked(){
 if(health > 0){
   //eating
   if(food == 1){
@@ -285,16 +316,16 @@ sleeps = 0
    drink = 0
   }
   if(mouseX >= 650 && mouseX <= 690 && mouseY >= 139 && mouseY <= 169){
-    thirst += 10
-    happy += 20
-    drunk += 20
-    drink = 0
+   thirst += 10
+   happy += 20
+   drunk += 20
+   drink = 0
   }
   if(mouseX >= 650 && mouseX <= 690 && mouseY >= 199 && mouseY <= 239){
-    thirst += 30
-    health -= 20
-    drunk -= 15
-    drink = 0
+   thirst += 30
+   health -= 20
+   drunk -= 15
+   drink = 0
   } 
 } 
 if(drink == 0){
@@ -303,13 +334,13 @@ if(drink == 0){
    food = 0
    sleeps = 0
   }
-}
+ }
 
 //sleeping
  rect(560, 10, 130, 70, 10)
  if(sleeps == 1){
-    if(mouseX >= 480 && mouseX <= 520 && mouseY >= 330 && mouseY <= 360){
-    sleeps = 0
+   if(mouseX >= 480 && mouseX <= 520 && mouseY >= 330 && mouseY <= 360){
+   sleeps = 0
   }
   if(energy <= 50){
   if(mouseX >= 650 && mouseX <= 690 && mouseY >= 139 && mouseY <= 169){
@@ -317,30 +348,27 @@ if(drink == 0){
    health += 20
    drunk -= 100
   }
-}
+ }
   if(mouseX >= 650 && mouseX <= 690 && mouseY >= 199 && mouseY <= 239){
    energy += 30
-  }
-
-  
-}
+  } 
+ }
 if(sleeps == 0){
   if(mouseX >= 560 && mouseX <= 690 && mouseY >= 10 && mouseY <= 80){
    sleeps = 1
-    drink = 0
-    food = 0   
+   drink = 0
+   food = 0   
+   }
   }
-}
 }else{
-if(mouseX >= 450 && mouseX <= 550 && mouseY >= 500 && mouseY <= 530){
-  health = 100
-  energy = 100
-  drunk = 0
-  hunger = 100
-  thirst = 100
-  happy = 100
-}
-}
-
-
+//deathchanges
+  if(mouseX >= 450 && mouseX <= 550 && mouseY >= 500 && mouseY <= 530){
+    health = 100
+    energy = 100
+    drunk = 0
+    hunger = 100
+    thirst = 100
+    happy = 100
+   }
+  }
 }
