@@ -9,6 +9,7 @@ let img8;
 let img9;
 let img10;
 let img11;
+let img12;
 let happy = 100
 let energy = 100
 let hunger = 100
@@ -19,6 +20,8 @@ let eatscore = 0
 let food = 0
 let drink = 0
 let sleeps = 0
+let bedtime = 0
+let sittime = 0
 function preload() {
 //images
   img1 = loadImage('./hoge heer.png');
@@ -32,6 +35,7 @@ function preload() {
   img9 =  loadImage('./hoge-heer-happy.png')
   img10 =  loadImage('./hoge-heer-sitting2.png')
   img11 =  loadImage('./hoge-heer-sleeping.png')
+  img12 =  loadImage('./hoge-heer-drunk.png')
 }
 
 function setup() {
@@ -102,13 +106,16 @@ function draw() {
   }
 
 //calculation for the figure
-image(img2, 0, 0, 1000, 600); 
+image(img2, 0, 0, 1000, 600);
+if(sittime <= 0 && bedtime <= 0){
 if(health == 0){
   image(img4, 500, 300, 150, 280)
 }else if(health <= 50 && hunger <=30){
   image(img7, 500, 300, 150, 280) 
 }else if(health <= 50){
    image(img8, 500, 300, 150, 280)
+}else if(drunk > 50){
+image(img12, 500, 300, 150, 280)
 }else if(hunger <= 30 && energy <= 30){
   image(img6, 500, 300, 150, 280)
 }else if(hunger <= 30){
@@ -120,12 +127,19 @@ image(img1, 500, 300, 150, 280)
 }else{
 image(img9, 500, 300, 150, 280); 
 }
+}
+if(sittime > 0){
 image(img10, 710, 220, 100, 200)
+}
+if(bedtime > 0){
 image(img11, 370, 320, 100, 100)
 noStroke()
 fill('red')
 rect(370, 378, 100, 50)
-stroke(1)
+}
+bedtime -= 0.01666666666
+sittime -= 0.01666666666
+stroke(0)
 //bar for options
 fill('#A87545') 
 rect(0, -10, 1000, 100, 10)
@@ -169,7 +183,10 @@ rect(160, 70, thirst, 10)
  text('food', 305, 60)
 text('drinks', 415, 60)
 text('sleep', 565, 60)
-
+ if(bedtime > 0){
+  fill(0,0,0,190)
+  rect(0, 0, 1000, 600)
+ }
 //optionselects and deathscreen
 if(food==1){
   foods()
@@ -294,6 +311,7 @@ function dead(){
 function mouseClicked(){
 if(health > 0){
   //eating
+  if(bedtime <= 0 && sittime <= 0){
   if(food == 1){
     if(mouseX >= 480 && mouseX <= 520 && mouseY >= 330 && mouseY <= 360){
    food = 0
@@ -302,16 +320,19 @@ if(health > 0){
     hunger += 30
     happy += 5
     food = 0
+    sittime = 3
   }
   if(mouseX >= 650 && mouseX <= 690 && mouseY >= 199 && mouseY <= 239){
     hunger += 15
     food = 0
+     sittime = 3
   }
   if(mouseX >= 650 && mouseX <= 690 && mouseY >= 269 && mouseY <= 309){
     hunger += 10
     happy -= 5
     health += 5
     food = 0
+     sittime = 3
   }
 }
 if(food == 0){
@@ -333,12 +354,14 @@ sleeps = 0
    happy += 20
    drunk += 20
    drink = 0
+    sittime = 3
   }
   if(mouseX >= 650 && mouseX <= 690 && mouseY >= 199 && mouseY <= 239){
    thirst += 30
    health -= 20
    drunk -= 15
    drink = 0
+    sittime = 3
   } 
 } 
 if(drink == 0){
@@ -348,22 +371,26 @@ if(drink == 0){
    sleeps = 0
   }
  }
-
+  }
 //sleeping
- rect(560, 10, 130, 70, 10)
+if(sittime <= 0 ){
  if(sleeps == 1){
    if(mouseX >= 480 && mouseX <= 520 && mouseY >= 330 && mouseY <= 360){
    sleeps = 0
+   
   }
   if(energy <= 50){
   if(mouseX >= 650 && mouseX <= 690 && mouseY >= 139 && mouseY <= 169){
    energy += 70
    health += 20
    drunk -= 100
+   bedtime = 3
+   sleeps = 0
   }
  }
   if(mouseX >= 650 && mouseX <= 690 && mouseY >= 199 && mouseY <= 239){
    energy += 30
+   sleeps = 0
   } 
  }
 if(sleeps == 0){
@@ -373,7 +400,9 @@ if(sleeps == 0){
    food = 0   
    }
   }
-}else{
+}
+}
+if(health == 0){
 //deathchanges
   if(mouseX >= 450 && mouseX <= 550 && mouseY >= 500 && mouseY <= 530){
     health = 100
@@ -384,4 +413,5 @@ if(sleeps == 0){
     happy = 100
    }
   }
+
 }
