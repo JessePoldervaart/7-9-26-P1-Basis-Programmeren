@@ -6,6 +6,9 @@ let img5;
 let img6;
 let img7;
 let img8;
+let img9;
+let img10;
+let img11;
 let happy = 100
 let energy = 100
 let hunger = 100
@@ -26,6 +29,9 @@ function preload() {
   img6 =  loadImage('./hoge-heer-hunger_energy-low.png')
   img7 =  loadImage('./hoge-heer-sick-and-hungry_1.png')
   img8 =  loadImage('./hoge-heer-sick.png')
+  img9 =  loadImage('./hoge-heer-happy.png')
+  img10 =  loadImage('./hoge-heer-sitting2.png')
+  img11 =  loadImage('./hoge-heer-sleeping.png')
 }
 
 function setup() {
@@ -109,10 +115,17 @@ if(health == 0){
   image(img5, 500, 300, 150, 280)
 }else if(energy <= 30){
   image(img3, 500, 300, 150, 280)
+}else if(happy <= 50){
+image(img1, 500, 300, 150, 280)
 }else{
-image(img1, 500, 300, 150, 280); 
+image(img9, 500, 300, 150, 280); 
 }
-
+image(img10, 710, 220, 100, 200)
+image(img11, 370, 320, 100, 100)
+noStroke()
+fill('red')
+rect(370, 378, 100, 50)
+stroke(1)
 //bar for options
 fill('#A87545') 
 rect(0, -10, 1000, 100, 10)
