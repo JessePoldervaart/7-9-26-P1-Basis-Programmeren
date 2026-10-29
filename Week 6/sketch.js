@@ -9,7 +9,8 @@ let img8;
 let img9;
 let img10;
 let img11;
-let img12;
+let img12; 
+let img13;
 let happy = 100
 let energy = 100
 let hunger = 100
@@ -22,7 +23,20 @@ let drink = 0
 let sleeps = 0
 let bedtime = 0
 let sittime = 0
+let nighttime = 0;
+let rest = 0
+function saveScore(){
+  storeItem('honger', hunger)
+  storeItem('dorst', thirst)
+  storeItem('dronken', drunk)
+  storeItem('geluk', happy)
+  storeItem('energie', energy)
+  storeItem('gezondheid', health)
+  storeItem('nacht', nighttime)
+}
+
 function preload() {
+
 //images
   img1 = loadImage('./hoge heer.png');
   img2 = loadImage('./kamer.png');
@@ -36,14 +50,25 @@ function preload() {
   img10 =  loadImage('./hoge-heer-sitting2.png')
   img11 =  loadImage('./hoge-heer-sleeping.png')
   img12 =  loadImage('./hoge-heer-drunk.png')
+  img13 =  loadImage('./hoge-heer-rest.png')
 }
 
 function setup() {
-  createCanvas(1000, 600);
-  
-  
+
+createCanvas(1000,600)
+ hunger = getItem('honger') || hunger;
+  thirst = getItem('dorst') || thirst;
+  drunk = getItem('dronken') !== null ? getItem('dronken') : drunk;
+  happy = getItem('geluk') || happy;
+  energy = getItem('energie') || energy;
+  health = getItem('gezondheid') || health;
+  nighttime = getItem('nacht')||nighttime;
+
+
 } 
 function draw() {
+  saveScore()
+
   //calculations for the bars
   if(thirst == 0 && hunger == 0){
     health -= 0.03333333333
@@ -56,10 +81,10 @@ function draw() {
     happy -= 0.01666666666
   }
     if(energy >= 0){
-    energy -= 0.03333333333
+    energy -= 0.01666666666
   }
     if(hunger >= 0){
-    hunger -=  0.03333333333
+    hunger -= 0.01666666666
   }
 
     if(drunk >= 0){
@@ -104,10 +129,15 @@ function draw() {
   if(energy < 0){
     energy = 0
   }
+  if(health == 0){
+    bedtime = 0
+    sittime = 0
+  }
+
 
 //calculation for the figure
 image(img2, 0, 0, 1000, 600);
-if(sittime <= 0 && bedtime <= 0){
+if(sittime <= 0 && bedtime <= 0 && rest <= 0){
 if(health == 0){
   image(img4, 500, 300, 150, 280)
 }else if(health <= 50 && hunger <=30){
@@ -137,8 +167,12 @@ noStroke()
 fill('red')
 rect(370, 378, 100, 50)
 }
+if(rest > 0){
+  image(img13, 500, 300, 150, 280)
+}
 bedtime -= 0.01666666666
 sittime -= 0.01666666666
+rest -= 0.01666666666
 stroke(0)
 //bar for options
 fill('#A87545') 
@@ -183,9 +217,14 @@ rect(160, 70, thirst, 10)
  text('food', 305, 60)
 text('drinks', 415, 60)
 text('sleep', 565, 60)
- if(bedtime > 0){
+console.log(nighttime)
+nighttime+=1
+ if(nighttime >= 1500){
   fill(0,0,0,190)
   rect(0, 0, 1000, 600)
+ }
+ if(nighttime >= 3000){
+  nighttime = 0
  }
 //optionselects and deathscreen
 if(food==1){
@@ -205,6 +244,11 @@ hunger = 0
 drunk = 0
 thirst = 0
 }
+
+ if (frameCount % 100 === 0 && health > 0) {
+    saveScore();
+  }
+  info()
 }
 
 //foods options
@@ -306,12 +350,22 @@ function dead(){
   textSize(20)
   text('try again',461,522)
 }
+function info(){
+fill('#c79e78')
+rect(200, 110, 600, 400, 20)
+fill('black')
+textSize(20)
+text('Some crucial information for this game:', 215, 135)
+text('this game is set in the 17nth century, whoch means that some', 215, 155)
 
+
+
+}
 //button code
 function mouseClicked(){
 if(health > 0){
   //eating
-  if(bedtime <= 0 && sittime <= 0){
+  if(bedtime <= 0 && sittime <= 0 && rest <=0){
   if(food == 1){
     if(mouseX >= 480 && mouseX <= 520 && mouseY >= 330 && mouseY <= 360){
    food = 0
@@ -373,24 +427,26 @@ if(drink == 0){
  }
   }
 //sleeping
-if(sittime <= 0 ){
+if(sittime <= 0 && bedtime <= 0 && rest <=0){
  if(sleeps == 1){
    if(mouseX >= 480 && mouseX <= 520 && mouseY >= 330 && mouseY <= 360){
    sleeps = 0
    
   }
-  if(energy <= 50){
+  if(nighttime >= 1500 && nighttime <= 3000){
   if(mouseX >= 650 && mouseX <= 690 && mouseY >= 139 && mouseY <= 169){
    energy += 70
    health += 20
    drunk -= 100
    bedtime = 3
    sleeps = 0
+   nighttime = 2820
   }
  }
   if(mouseX >= 650 && mouseX <= 690 && mouseY >= 199 && mouseY <= 239){
    energy += 30
    sleeps = 0
+   rest = 3
   } 
  }
 if(sleeps == 0){
@@ -411,6 +467,7 @@ if(health == 0){
     hunger = 100
     thirst = 100
     happy = 100
+    nighttime = 0
    }
   }
 
