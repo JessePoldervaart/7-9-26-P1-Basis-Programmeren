@@ -25,6 +25,11 @@ let bedtime = 0
 let sittime = 0
 let nighttime = 0;
 let rest = 0
+let inf = 2
+let bathtime = 0
+let cleanse = 0
+
+//part 1/3 local storage
 function saveScore(){
   storeItem('honger', hunger)
   storeItem('dorst', thirst)
@@ -33,11 +38,11 @@ function saveScore(){
   storeItem('energie', energy)
   storeItem('gezondheid', health)
   storeItem('nacht', nighttime)
+  storeItem('informatie', inf)
 }
 
-function preload() {
-
 //images
+function preload() {
   img1 = loadImage('./hoge heer.png');
   img2 = loadImage('./kamer.png');
   img3 = loadImage('./hoge-heer-energy-low2.png');
@@ -53,9 +58,11 @@ function preload() {
   img13 =  loadImage('./hoge-heer-rest.png')
 }
 
-function setup() {
 
+
+function setup() {
 createCanvas(1000,600)
+//part 2/3 local storage
  hunger = getItem('honger') || hunger;
   thirst = getItem('dorst') || thirst;
   drunk = getItem('dronken') !== null ? getItem('dronken') : drunk;
@@ -63,7 +70,7 @@ createCanvas(1000,600)
   energy = getItem('energie') || energy;
   health = getItem('gezondheid') || health;
   nighttime = getItem('nacht')||nighttime;
-
+  inf = getItem('informatie', inf)||inf
 
 } 
 function draw() {
@@ -173,8 +180,39 @@ if(rest > 0){
 bedtime -= 0.01666666666
 sittime -= 0.01666666666
 rest -= 0.01666666666
-stroke(0)
+bathtime -= 0.01666666666
+
+console.log(nighttime)
+nighttime+=1
+ if(nighttime >= 1500){
+  fill(0,0,0,190)
+  rect(0, 0, 1000, 600)
+ }
+ if(nighttime >= 3000){
+  nighttime = 0
+ }
+ if(bathtime > 0){
+  cleanscreen() 
+ }
+ //optionselects and deathscreen
+if(food==1){
+  foods()
+}
+if(drink==1){
+  drinks()
+}
+if(sleeps==1){
+  sleep()
+}
+if(inf == 2){
+  info()
+}
+
+if(cleanse == 1){
+  clean()
+}
 //bar for options
+stroke(0)
 fill('#A87545') 
 rect(0, -10, 1000, 100, 10)
 textSize(15)
@@ -212,30 +250,20 @@ rect(160, 70, thirst, 10)
  rect(300, 10, 105, 70, 10)
  rect(410, 10, 145, 70, 10)
  rect(560, 10, 130, 70, 10)
+ rect(695, 10, 90, 70, 10)
+ rect(790, 10, 130, 70, 10)
  fill('black')
  textSize(50)
  text('food', 305, 60)
 text('drinks', 415, 60)
 text('sleep', 565, 60)
-console.log(nighttime)
-nighttime+=1
- if(nighttime >= 1500){
-  fill(0,0,0,190)
-  rect(0, 0, 1000, 600)
- }
- if(nighttime >= 3000){
-  nighttime = 0
- }
+text('info', 700, 60)
+text('clean', 795, 60)
+
+
+
 //optionselects and deathscreen
-if(food==1){
-  foods()
-}
-if(drink==1){
-  drinks()
-}
-if(sleeps==1){
-  sleep()
-}
+
 if(health == 0){
 dead()
 happy = 0
@@ -243,16 +271,29 @@ energy = 0
 hunger = 0
 drunk = 0
 thirst = 0
+food = 0
+drink = 0
+sleeps = 0
+inf = 1
+cleanse = 0
 }
 
- if (frameCount % 100 === 0 && health > 0) {
+
+//part 3/3 local storage
+if (frameCount % 100 === 0 && health > 0) {
     saveScore();
-  }
-  info()
+}
+
+  
+  
 }
 
 //foods options
 function foods(){
+if(nighttime <=1500){
+fill(0,0,0,190)
+rect(0,0,1000,600)
+}
   fill('#c79e78')
   rect(300, 110, 400, 270, 20)
   textSize(50)
@@ -281,6 +322,10 @@ function foods(){
 
 //drinks options
 function drinks(){
+if(nighttime <=1500){
+fill(0,0,0,190)
+rect(0,0,1000,600)
+}
   fill('#c79e78')
   rect(300, 110, 400, 270, 20)
   textSize(50)
@@ -298,8 +343,8 @@ function drinks(){
   rect(480, 330, 40, 30, 10)
   textSize(20)
   fill('black')
-  text('fills 10 thirst', 370, 160)
-  text('fills 30 thirst', 370, 220)
+  text('fills 40 thirst', 370, 160)
+  text('fills 60 thirst', 370, 220)
   
   text('drink', 640, 160)
   text('drink', 640, 220)
@@ -309,6 +354,10 @@ function drinks(){
 
 //sleeping options
 function sleep(){
+if(nighttime <=1500){
+fill(0,0,0,190)
+rect(0,0,1000,600)
+}
   fill('#c79e78')
   rect(300, 110, 400, 270, 20)
   textSize(50)
@@ -337,8 +386,10 @@ function sleep(){
 
 //deathscreen
 function dead(){
-  fill(0,0,0,160)
-  rect(0,0,1000,600)
+ if(nighttime <=1500){
+fill(0,0,0,190)
+rect(0,0,1000,600)
+}
   fill('lightgray')
   rect(290, 100, 420, 140, 50)
   fill('black')
@@ -350,50 +401,100 @@ function dead(){
   textSize(20)
   text('try again',461,522)
 }
+
+
+//information screen
 function info(){
+if(nighttime <=1500){
+fill(0,0,0,190)
+rect(0,0,1000,600)
+}
 fill('#c79e78')
 rect(200, 110, 600, 400, 20)
+fill('lightgray')
+rect(482, 470, 50, 30,10)
 fill('black')
 textSize(20)
-text('Some crucial information for this game:', 215, 135)
-text('this game is set in the 17nth century, whoch means that some', 215, 155)
-
-
-
+text('Some information for the setting of this game:', 215, 135)
+text('This game is set in the 17nth century, which means that some', 215, 155)
+text('things are different from nowadays. For example: water was not',215,175)
+text('as safe to drink as it is today.',215,195)
+text('Some crucial information about the workings of the game:',215,235)
+text('the values set by the different options for food and the others',215,255)
+text('are the main values. Some have underlying values, like the meat',215,275)
+text('makes him happy. And don´t starve or dehydrate him,',215,295)
+text('as it isnt good for his health.', 215, 315)
+text('Also, a small tip: an apple a day keeps the doctor away.',215,335)
+text('exit', 490, 490)
 }
-//button code
+
+function clean(){
+if(nighttime <=1500){
+fill(0,0,0,190)
+rect(0,0,1000,600)
+}
+  fill('#c79e78')
+  rect(300, 110, 400, 270, 20)
+  textSize(50)
+  text('🛁', 300, 170)
+  fill('lightgray')
+  rect(365, 139, 127, 30, 10)
+  rect(635, 139, 57, 30, 10)
+  rect(480, 330, 40, 30, 10)
+  textSize(20)
+  fill('black')
+  text('fills 50 health', 370, 160)
+  text('bathe', 639, 160)
+  text('exit', 485, 352)
+}
+function cleanscreen(){
+  fill('black')
+  rect(0,0,1000,600)
+  fill('red')
+  textSize(100)
+  text('DON´T LOOK!!!', 150, 400)
+}
+
+
+//button codes
 function mouseClicked(){
 if(health > 0){
+
   //eating
-  if(bedtime <= 0 && sittime <= 0 && rest <=0){
+  if(bedtime <= 0 && sittime <= 0 && rest <=0  && bathtime <= 0){
   if(food == 1){
     if(mouseX >= 480 && mouseX <= 520 && mouseY >= 330 && mouseY <= 360){
    food = 0
   }
+  //meat
   if(mouseX >= 650 && mouseX <= 690 && mouseY >= 139 && mouseY <= 169){
     hunger += 30
-    happy += 5
+    happy += 15
     food = 0
     sittime = 3
   }
+  //fish
   if(mouseX >= 650 && mouseX <= 690 && mouseY >= 199 && mouseY <= 239){
     hunger += 15
     food = 0
      sittime = 3
   }
+  //apple
   if(mouseX >= 650 && mouseX <= 690 && mouseY >= 269 && mouseY <= 309){
     hunger += 10
     happy -= 5
-    health += 5
+    health += 15
     food = 0
      sittime = 3
   }
 }
 if(food == 0){
   if(mouseX >= 300 && mouseX <= 405 && mouseY >= 10 && mouseY <= 80){
-   food = 1
+food = 1
 drink = 0
 sleeps = 0
+inf =1
+cleanse = 0
   }
 }
 
@@ -403,15 +504,17 @@ sleeps = 0
     if(mouseX >= 480 && mouseX <= 520 && mouseY >= 330 && mouseY <= 360){
    drink = 0
   }
+  //beer
   if(mouseX >= 650 && mouseX <= 690 && mouseY >= 139 && mouseY <= 169){
-   thirst += 10
+   thirst += 40
    happy += 20
    drunk += 20
    drink = 0
     sittime = 3
   }
+  //water
   if(mouseX >= 650 && mouseX <= 690 && mouseY >= 199 && mouseY <= 239){
-   thirst += 30
+   thirst += 60
    health -= 20
    drunk -= 15
    drink = 0
@@ -423,39 +526,92 @@ if(drink == 0){
    drink = 1
    food = 0
    sleeps = 0
+   inf =1
+   cleanse = 0
   }
  }
-  }
+}
+
+
 //sleeping
-if(sittime <= 0 && bedtime <= 0 && rest <=0){
+if(sittime <= 0 && bedtime <= 0 && rest <=0 && bathtime <= 0){
  if(sleeps == 1){
    if(mouseX >= 480 && mouseX <= 520 && mouseY >= 330 && mouseY <= 360){
    sleeps = 0
    
   }
+  //sleeping
   if(nighttime >= 1500 && nighttime <= 3000){
   if(mouseX >= 650 && mouseX <= 690 && mouseY >= 139 && mouseY <= 169){
    energy += 70
    health += 20
-   drunk -= 100
+   drunk -= 30
    bedtime = 3
    sleeps = 0
+   happy += 30
    nighttime = 2820
   }
  }
+ //resting
   if(mouseX >= 650 && mouseX <= 690 && mouseY >= 199 && mouseY <= 239){
    energy += 30
    sleeps = 0
    rest = 3
+
   } 
  }
 if(sleeps == 0){
   if(mouseX >= 560 && mouseX <= 690 && mouseY >= 10 && mouseY <= 80){
    sleeps = 1
    drink = 0
-   food = 0   
+   food = 0  
+   inf =1 
+   cleanse = 0
    }
   }
+}
+
+//information
+if(inf == 2 && health >0){
+  if(mouseX >= 482 && mouseX <= 532 && mouseY >= 470 && mouseY <= 500){
+  inf =1 
+
+   }
+  }
+ 
+  if(inf == 1){
+  if(mouseX >= 695 && mouseX <= 785 && mouseY >= 10 && mouseY <= 80){
+  inf = 2 
+  sleeps = 0
+  drink = 0
+  food = 0 
+  cleanse = 0
+   }
+  }
+
+
+//bathing
+if( bedtime <= 0 && sittime <= 0 && rest <=0  && bathtime <= 0){
+if(cleanse == 0)
+if(mouseX >= 790 && mouseX <= 920 && mouseY >= 10 && mouseY <= 80){
+  cleanse = 1
+  inf = 1
+  sleeps = 0
+  drink = 0
+  food = 0 
+}
+if(cleanse == 1){
+   if(mouseX >= 480 && mouseX <= 520 && mouseY >= 330 && mouseY <= 360){
+   cleanse = 0
+   
+  }
+   if(mouseX >= 650 && mouseX <= 690 && mouseY >= 139 && mouseY <= 169){
+    health += 50
+    happy += 40
+    bathtime = 3
+    cleanse = 0
+  }
+}
 }
 }
 if(health == 0){
@@ -471,4 +627,12 @@ if(health == 0){
    }
   }
 
+
+}
+
+//used to check when making info screen
+//to see if it would pop up when i had no data and the variable inf whas 2,
+//and if it would afterwards stay hidden after refreshing
+function resetGame(){
+  clearStorage()
 }
